@@ -3,12 +3,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const globalConfig = require('../global.config');
+const cssConfig = require('./css-config.json');
 
 const appPath = path.resolve(__dirname, '../src');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
 const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
+
+function cssTest(language) {
+    switch (language) {
+        case 'scss':
+            return /\.s?css$/;
+        case 'less':
+            return /\.(less|css)$/;
+        case 'stylus':
+            return /\.(styl(us)?|css)$/;
+    }
+}
 
 module.exports = {
     entry: {
@@ -45,13 +57,13 @@ module.exports = {
                 name: path.posix.join(globalConfig.staticPublicPath, `fonts/[name]${isProduction ? '.[hash]' : ''}.[ext]`)
             }
         }, {
-            test: /\.s?css$/,
+            test: cssTest(cssConfig.language),
             include: publicPaths,
-            loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?sourceMap')
+            loader: ExtractTextPlugin.extract('style', `css!postcss${cssConfig.language ? '!' + cssConfig.language : ''}?sourceMap`)
         }, {
-            test: /\.s?css$/,
+            test: cssTest(cssConfig.language),
             exclude: publicPaths,
-            loader: 'to-string!css!postcss!sass?sourceMap'
+            loader: `to-string!css!postcss${cssConfig.language ? '!' + cssConfig.language : ''}?sourceMap`
         }]
     },
     plugins: [

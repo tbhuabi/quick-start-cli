@@ -1,0 +1,14 @@
+{
+  "sass": {
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2"
+  },
+  "less": {
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3"
+  },
+  "stylus": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.3.1"
+  }
+}

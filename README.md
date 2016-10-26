@@ -39,6 +39,10 @@ npm install
 ```
 
 ## 其它
+启动项目
+```bash
+npm start
+```
 单元测试
 ```bash
 npm run test

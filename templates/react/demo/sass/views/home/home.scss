@@ -1,0 +1,17 @@
+@import "../../assets/scss/varibles";
+
+.banner {
+    width: 389px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 60px;
+    color: $color-default;
+    img {
+        width: 100%;
+    }
+}
+
+p {
+    font-size: 36px;
+    text-align: center;
+}

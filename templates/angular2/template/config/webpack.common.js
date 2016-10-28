@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
+const cssTest = require('./css-test');
 
 const appPath = path.resolve(__dirname, '../src');
 
@@ -11,16 +12,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 
 const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
 
-function cssTest(language) {
-    switch (language) {
-        case 'scss':
-            return /\.s?css$/;
-        case 'less':
-            return /\.(less|css)$/;
-        case 'stylus':
-            return /\.(styl(us)?|css)$/;
-    }
-}
+
 
 module.exports = {
     entry: {

@@ -50,7 +50,7 @@ const questions = [{
     message: '请输入项目简介：'
 }];
 module.exports = function buildProject() {
-    log(chalk.blue('创建工程：'));
+    log(chalk.blue('创建项目：'));
     inquirer.prompt(questions).then(answers => {
         return new Promise(resolve => {
             line();
@@ -67,10 +67,12 @@ module.exports = function buildProject() {
             inquirer.prompt([{
                 name: 'confirm',
                 type: 'confirm',
-                message: '请确认您的工程：'
-            }]).then(bool => {
-                if (bool) {
+                message: '请确认您的项目：'
+            }]).then(result => {
+                if (result.confirm) {
                     resolve(answers)
+                } else{
+                    log(chalk.red('项目创建取消成功！'))
                 }
             })
         })

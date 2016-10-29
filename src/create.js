@@ -46,6 +46,9 @@ module.exports = function (result) {
         if (result.version) {
             packageJson.version = result.version;
         }
+        if (result.author) {
+            packageJson.author = result.author;
+        }
         if (result.description) {
             packageJson.description = result.description;
         }

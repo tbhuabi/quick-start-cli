@@ -41,10 +41,6 @@ const questions = [{
     type: 'input',
     message: '请输入作者的名称：'
 }, {
-    name: 'repository',
-    type: 'input',
-    message: '请输入项目仓库地址：'
-}, {
     name: 'description',
     type: 'input',
     message: '请输入项目简介：'
@@ -60,7 +56,6 @@ module.exports = function buildProject() {
                 `  样式表语言：${chalk.green(answers.cssLanguage)}`,
                 `      版本号：${chalk.green(answers.version)}`,
                 `        作者：${chalk.green(answers.author)}`,
-                `项目仓库地址：${chalk.green(answers.repository)}`,
                 `    项目简介：${chalk.green(answers.description)}`
             ];
             log(messages.join('\n'));

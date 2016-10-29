@@ -25,7 +25,7 @@ CSS预处理语言支持
 ```bash
 npm install -g quick-start-cli
 ```
-检测是否完状成功
+检测是否安装成功
 ```bash
 qs -v
 ```

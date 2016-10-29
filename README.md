@@ -2,6 +2,8 @@
 
 通过Quick-start-cli可以快速搭建一个基于webpack的前端项目
 
+![](./resource/banner.jpg)
+
 ## 脚手架特性
 框架支持
 - Angular2

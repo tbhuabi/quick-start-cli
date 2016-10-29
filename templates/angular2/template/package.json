@@ -2,6 +2,8 @@
   "name": "angular2-webpack",
   "version": "1.0.0",
   "description": "A webpack starter for Angular",
+  "main": "server/server.js",
+  "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development node server/server.js",
     "pack": "webpack-dev-server --inline --progress --port 8080",
@@ -9,8 +11,13 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize",
     "postinstall": "typings install"
   },
-  "license": "MIT",
-  "private": true,
+  "keywords": [
+    "react",
+    "webpack",
+    "es6"
+  ],
+  "author": "tanbo",
+  "license": "ISC",
   "dependencies": {
     "@angular/common": "^2.1.0",
     "@angular/compiler": "^2.1.0",

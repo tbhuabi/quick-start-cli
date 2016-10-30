@@ -1,6 +1,6 @@
 module.exports = function cssTest(language) {
     switch (language) {
-        case 'scss':
+        case 'sass':
             return /\.s?css$/;
         case 'less':
             return /\.(less|css)$/;

@@ -71,7 +71,7 @@ module.exports = {
     eslint: {
         formatter: require('eslint-friendly-formatter')
     },
-    postcss: function () {
+    postcss() {
         return [require('autoprefixer')];
     },
     vue: {

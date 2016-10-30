@@ -8,8 +8,7 @@
     "start": "cross-env NODE_ENV=development node server/server.js",
     "pack": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize",
-    "postinstall": "typings install"
+    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize"
   },
   "keywords": [
     "react",
@@ -33,6 +32,8 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.2.30",
+    "@types/node": "^6.0.42",
     "angular2-template-loader": "^0.5.0",
     "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^2.2.4",
@@ -65,7 +66,6 @@
     "tslint-formatter-eslint-style": "0.0.1",
     "tslint-loader": "^2.1.5",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",

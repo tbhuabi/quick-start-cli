@@ -61,7 +61,7 @@ module.exports = {
     eslint: {
         configFile: path.resolve(__dirname, '../.eslintrc')
     },
-    postcss: function () {
+    postcss() {
         return [require('autoprefixer')];
     },
     plugins: [

@@ -67,7 +67,7 @@ module.exports = {
             template: path.resolve(appPath, 'index.html')
         })
     ],
-    postcss() => {
+    postcss() {
         return [require('autoprefixer')];
     },
     tslint: {

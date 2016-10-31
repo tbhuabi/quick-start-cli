@@ -13,7 +13,7 @@
   @import "../../assets/less/varibles.less";
 
   .header-wrap {
-    background-color: $color-default;
+    background-color: @color-default;
     height: 100%;
     padding-top: 5px;
     box-sizing: border-box;
@@ -30,12 +30,12 @@
     a {
       text-decoration: none;
       padding: 5px 10px;
-      background-color: $color-primary;
+      background-color: @color-primary;
       border-radius: 3px;
       color: #fff;
       transition: background-color .3s;
       &:hover {
-        background-color: $color-primary - 50;
+        background-color: @color-primary - 50;
       }
     }
   }

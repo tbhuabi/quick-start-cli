@@ -1,7 +1,7 @@
-# angular2-webpack项目模板
+# React-webpack项目模板
 
-本项目demo是基于webpack的angular2项目，语言为typescript+es6  
-本项目为单页应用，历史纪录基于angular2默认的html5 history api，在正式发布后，后台需配置相关页面解析逻辑，防止404页面出现
+本项目demo是基于webpack的React项目 
+本项目为单页应用，路由组件为React router，在正式发布后，后台需配置相关页面解析逻辑，防止404页面出现
 
 ## 如何使用？
 
@@ -14,7 +14,7 @@
 **所有src目录以外的文件，请勿更改**
 
 + assets目录存放公共的图片和样式表
-+ directives目录存放全局指令
++ store如果有采用Redux类的工具，相关文件应该放在这里，如XXX.action.js
 + components目录存放全局组件
 + views存放页面文件夹  
 
@@ -22,13 +22,13 @@
 
 ## 代码风格
 + 项目采用了**tslint**作为代码检查工具
-+ 请确保代码风格符合[codelyzer](https://angular.cn/docs/ts/latest/guide/style-guide.html)标准，否则启动和构建会不成功，如果不小心写出的代码不符合代码规范，请注意控制台输出错误的信息，并做出相应更改，直到没有代码语法错误
++ 请确保代码风格符合**airbnb**标准，否则启动和构建会不成功，如果不小心写出的代码不符合代码规范，请注意控制台输出错误的信息，并做出相应更改，直到没有代码语法错误
 
 ## 自动化测试
 `npm run test`
 为确保项目的健壮性、可维护性和可预期，建议为每一个项目中的文件写单元测试，测试工具为karma，框架为jasmine，相关文档可上互联网上搜索  
 
-默认情况下，单元测试文件以XXX.spec.ts命名
+默认情况下，单元测试文件以XXX.test.jsx/XXX.test.js命名
 
 ## 构建发布
 

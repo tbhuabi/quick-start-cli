@@ -27,10 +27,10 @@ app.use(webpackHotMiddleware(compiler));
 
 app.listen(globalConfig.port, globalConfig.ip, (error) => {
     if (error) {
-        console.error('启动错误！')
-        throw Error(error)
+        console.error('启动错误！');
+        return;
     }
-    open(globalConfig.localPath)
+    open(globalConfig.localPath);
 });
 
 

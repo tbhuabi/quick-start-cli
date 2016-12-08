@@ -64,7 +64,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(appPath, 'index.html')
+            template: path.resolve(appPath, 'index.html'),
+            favicon: path.resolve(appPath, 'assets/images/favicon.ico')
         })
     ],
     postcss() {

@@ -31,4 +31,4 @@ module.exports = {
             loader: `to-string!css${cssConfig.language ? '!' + cssConfig.language : ''}`
         }]
     }
-}
+};

@@ -11,4 +11,4 @@ module.exports = {
     localPath: localPath,
     buildPath: buildPath,
     staticPublicPath: 'static/'
-}
+};

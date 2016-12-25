@@ -12,7 +12,7 @@ module.exports = webpackMerge(commonConfig, {
 
     output: {
         path: globalConfig.buildPath,
-        publicPath: globalConfig.onlinePublicPathSuffix,
+        publicPath: globalConfig.onlinePublicPathPrefix,
         filename: path.posix.join(globalConfig.staticPublicPath, 'js/[name].[hash].js'),
         chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[id].[hash].chunk.js')
     },

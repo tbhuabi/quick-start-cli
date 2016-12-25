@@ -10,5 +10,6 @@ module.exports = {
     port: port,
     localPath: localPath,
     buildPath: buildPath,
-    staticPublicPath: 'static/'
+    staticPublicPath: 'static/',
+    onlinePublicPathSuffix: '/'
 };

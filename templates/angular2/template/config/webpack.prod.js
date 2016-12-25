@@ -12,18 +12,23 @@ module.exports = webpackMerge(commonConfig, {
 
     output: {
         path: globalConfig.buildPath,
-        publicPath: '/',
+        publicPath: globalConfig.onlinePublicPathSuffix,
         filename: path.posix.join(globalConfig.staticPublicPath, 'js/[name].[hash].js'),
         chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[id].[hash].chunk.js')
     },
 
     htmlLoader: {
-        minimize: false // workaround for ng2
+        minimize: true,
+        removeAttributeQuotes: false,
+        caseSensitive: true
     },
 
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor', 'polyfills']
+        }),
         new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
             mangle: {
                 keep_fnames: true

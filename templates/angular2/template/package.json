@@ -11,25 +11,28 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize"
   },
   "keywords": [
-    "react",
+    "angular2",
+    "ng2",
+    "typescript",
+    "ts",
     "webpack",
     "es6"
   ],
   "author": "tanbo",
   "license": "ISC",
   "dependencies": {
-    "@angular/common": "^2.1.0",
-    "@angular/compiler": "^2.1.0",
-    "@angular/core": "^2.1.0",
-    "@angular/forms": "^2.1.0",
-    "@angular/http": "^2.1.0",
-    "@angular/platform-browser": "^2.1.0",
-    "@angular/platform-browser-dynamic": "^2.1.0",
-    "@angular/router": "^3.1.0",
-    "core-js": "^2.4.1",
+    "@angular/common": "2.2.3",
+    "@angular/compiler": "2.2.3",
+    "@angular/core": "2.2.3",
+    "@angular/forms": "2.2.3",
+    "@angular/http": "2.2.3",
+    "@angular/platform-browser": "2.2.3",
+    "@angular/platform-browser-dynamic": "2.2.3",
+    "@angular/router": "3.2.3",
+    "core-js": "2.4.1",
     "normalize.css": "^5.0.0",
-    "rxjs": "^5.0.0-beta.12",
-    "zone.js": "^0.6.25"
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "0.6.23"
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.30",

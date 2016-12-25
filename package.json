@@ -8,10 +8,13 @@
   },
   "keywords": [
     "angular2",
+    "typescript",
+    "ng2",
+    "starter",
     "webpack",
     "react",
-    "vue",
-    "quick-start"
+    "vue2",
+    "quick start"
   ],
   "author": {
     "name": "Tan Bo",

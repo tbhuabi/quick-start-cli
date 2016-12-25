@@ -59,10 +59,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor', 'polyfills']
-        }),
-        new HtmlWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(appPath, 'index.html'),
             favicon: path.resolve(appPath, 'assets/images/favicon.ico')

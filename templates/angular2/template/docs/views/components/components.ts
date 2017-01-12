@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'doc-components',
     templateUrl: 'components.html',
-    styleUrls: ['components.scss']
+    styleUrls: ['components.css']
 })
 export class ComponentsComponent {
 }

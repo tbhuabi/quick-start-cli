@@ -1,0 +1,6 @@
+.doc-content div {
+    display: none;
+}
+.doc-content .active{
+    display: block;
+}

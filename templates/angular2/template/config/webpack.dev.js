@@ -10,9 +10,9 @@ let config = Object.assign({}, commonConfig);
 
 let polyfill = 'eventsource-polyfill';
 let hotServer = 'webpack/hot/dev-server';
-let hotClient = 'webpack-hot-middleware/client?reload=true&path=' + globalConfig.localPath + '__webpack_hmr'
+let hotClient = 'webpack-hot-middleware/client?reload=true&path=' + globalConfig.localPath + '__webpack_hmr';
 let entry = config.entry;
-Object.keys(entry).forEach(function(key) {
+Object.keys(entry).forEach(function (key) {
     entry[key] = [hotClient, entry[key]];
     if (key == 'app') {
         entry[key].unshift(hotServer);

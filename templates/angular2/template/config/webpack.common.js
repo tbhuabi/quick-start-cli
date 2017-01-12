@@ -6,12 +6,12 @@ const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
 const cssTest = require('./css-test');
 
-const appPath = path.resolve(__dirname, '../src');
-
 const isProduction = process.env.NODE_ENV == 'production';
 
-const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
+const appPath = globalConfig.appPath;
 
+
+const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
 
 
 module.exports = {
@@ -34,6 +34,9 @@ module.exports = {
         }, {
             test: /\.html$/,
             loader: 'html'
+        }, {
+            test: /\.json$/,
+            loader: 'json'
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url',
@@ -62,6 +65,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
         }),
+        new HtmlWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(appPath, 'index.html'),
             favicon: path.resolve(appPath, 'assets/images/favicon.ico')

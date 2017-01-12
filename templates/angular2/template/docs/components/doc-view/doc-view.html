@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li [ngClass]="{active: showType === 'example'}"><a (click)="setShowType('example')" href="javascript:;">示例</a></li>
+  <li [ngClass]="{active: showType === 'ts'}"><a (click)="setShowType('ts')" href="javascript:;">ts</a></li>
+  <li [ngClass]="{active: showType === 'html'}"><a (click)="setShowType('html')" href="javascript:;">html</a></li>
+  <li [ngClass]="{active: showType === 'styleSheet'}"><a (click)="setShowType('styleSheet')" href="javascript:;">styleSheet</a></li>
+</ul>
+<div>
+  <br>
+  <div class="doc-content">
+    <div [ngClass]="{active: showType === 'example'}">
+      <ng-content></ng-content>
+    </div>
+    <div [ngClass]="{active: showType === 'ts'}" [innerHTML]="tsHtml"></div>
+    <div [ngClass]="{active: showType === 'html'}" [innerHTML]="templateHtml"></div>
+    <div [ngClass]="{active: showType === 'styleSheet'}" [innerHTML]="styleSheetHtml"></div>
+  </div>
+  <div [innerHTML]="docHtml"></div>
+</div>

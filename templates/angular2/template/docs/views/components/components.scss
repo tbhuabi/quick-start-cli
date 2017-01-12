@@ -1,0 +1,23 @@
+$nav-width: 230px;
+
+.left-nav {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: $nav-width;
+    border-right: 1px solid #ccc;
+    background-color: #f5f5f5;
+}
+
+.list-group-item {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.content {
+    padding-left: $nav-width;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}

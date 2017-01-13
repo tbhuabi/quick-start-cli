@@ -17,7 +17,9 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     htmlLoader: {
-        minimize: false // workaround for ng2
+        minimize: true,
+        removeAttributeQuotes: false,
+        caseSensitive: true
     },
 
     plugins: [

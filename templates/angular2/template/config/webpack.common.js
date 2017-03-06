@@ -54,7 +54,7 @@ module.exports = {
         }, {
             test: cssTest(cssConfig.language),
             include: publicPaths,
-            loader: `style!css?sourceMap!postcss?sourceMap!${cssConfig.language ? '!' + cssConfig.language : ''}?sourceMap`
+            loader: ExtractTextPlugin.extract('style', `css!postcss${cssConfig.language ? '!' + cssConfig.language : ''}?sourceMap`)
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,

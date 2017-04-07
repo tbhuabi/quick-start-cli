@@ -1,0 +1,18 @@
+.markdown-doc table {
+    border: 1px solid #ccc;
+    width: 100%;
+    line-height: 26px;
+}
+
+.markdown-doc table th {
+    white-space: nowrap;
+    padding: 4px 6px;
+}
+
+.markdown-doc table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.markdown-doc table td {
+    padding: 4px 6px;
+}

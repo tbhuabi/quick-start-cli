@@ -6,8 +6,15 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../src/assets/scss/index.scss';
 import 'highlight.js/styles/github.css';
+import './assets/css/base/font-family.css';
+import './assets/css/components/doc.css';
+import './assets/css/components/table.css';
 
 if (process.env.ENV === 'production') {
     enableProdMode();
 }
-platformBrowserDynamic().bootstrapModule(AppModule).then();
+declare let module: any;
+if (module.hot) {
+    module.hot.accept();
+}
+platformBrowserDynamic().bootstrapModule(AppModule);

@@ -1,4 +1,4 @@
-# 测试文档
+# 组件文档
 ```js
 window.onload = function() {
   alert(222);

@@ -8,18 +8,18 @@ const commonConfig = require('./webpack.common');
 
 let config = Object.assign({}, commonConfig);
 
-let polyfill = 'eventsource-polyfill';
-let hotServer = 'webpack/hot/dev-server';
-let hotClient = 'webpack-hot-middleware/client?reload=true&path=' + globalConfig.localPath + '__webpack_hmr';
+let hotServer = 'webpack/hot/only-dev-server';
+
+let hotClient = 'webpack-hot-middleware/client?path=' + globalConfig.localPath + '__webpack_hmr&reload=true&noInfo=false&quiet=false';
 let entry = config.entry;
 Object.keys(entry).forEach(function (key) {
-    entry[key] = [hotClient, entry[key]];
-    if (key == 'app') {
-        entry[key].unshift(hotServer);
-    }
+    entry[key] = [hotClient, hotServer, entry[key]];
+    // if (key === 'app') {
+    //     entry[key].unshift(hotServer);
+    // }
 });
 module.exports = webpackMerge(config, {
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-source-map',
     output: {
         path: globalConfig.buildPath,
         publicPath: '/',
@@ -30,7 +30,8 @@ module.exports = webpackMerge(config, {
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
         // new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ],
     // devServer: {
     //     contentBase: "./public",//本地服务器所加载的页面所在的目录

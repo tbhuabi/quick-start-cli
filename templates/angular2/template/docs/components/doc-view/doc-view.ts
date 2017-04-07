@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 const markdownIt = require('markdown-it');
 const hljs = require('highlight.js');
@@ -22,15 +23,6 @@ const md = markdownIt({
     styleUrls: ['doc-view.css']
 })
 export class DocViewComponent implements OnInit {
-    @Input()
-    doc: string = '';
-    @Input()
-    styleSheet: string = '';
-    @Input()
-    template: string = '';
-    @Input()
-    ts: string = '';
-
     showType: string = 'example';
 
     docHtml: string = '';
@@ -38,11 +30,24 @@ export class DocViewComponent implements OnInit {
     templateHtml: string = '';
     tsHtml: string = '';
 
+    constructor(private activatedRoute: ActivatedRoute) {
+    }
+
     ngOnInit() {
-        this.docHtml = md.render(this.doc);
-        this.styleSheetHtml = md.render('```scss\n' + this.styleSheet + '\n```');
-        this.templateHtml = md.render('```html\n' + this.template + '\n```');
-        this.tsHtml = md.render('```ts\n' + this.ts + '\n```');
+        const value = this.activatedRoute.data['value'];
+        if (value) {
+            const doc = value.doc || '';
+            const styleSheet = value.styleSheet || '';
+            const template = value.html || '';
+            const ts = value.ts || '';
+            this.docHtml = md.render(doc);
+            this.templateHtml = md.render('```html\n' + template + '\n```');
+            this.tsHtml = md.render('```ts\n' + ts + '\n```');
+            if (styleSheet) {
+                this.styleSheetHtml = md.render('```scss\n' + styleSheet + '\n```');
+            }
+        }
+
     }
 
     setShowType(type) {

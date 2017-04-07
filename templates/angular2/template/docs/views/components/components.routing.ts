@@ -12,8 +12,8 @@ const appRoutes: Routes = [{
         component: DateTimePickerExampleComponent,
         data: {
             html: require('./date-time-picker/date-time-picker-example.html'),
-            ts: require('!!raw!./date-time-picker/date-time-picker-example'),
-            doc: require('!!raw!./date-time-picker/doc.md')
+            ts: require('!!raw-loader!./date-time-picker/date-time-picker-example'),
+            doc: require('!!raw-loader!./date-time-picker/doc.md')
         }
     }]
 }];

@@ -22,7 +22,12 @@ CSS预处理语言支持
 - 如果的angular2的项目，你还可以构建当前项目的文档
 
 ## 使用方法
-全局安装
+### 全局安装
+如果使用angular2 + webpack1
+```bash
+npm install -g quick-start-cli@^1.0.0
+```
+如果使用angular4 + webpack2
 ```bash
 npm install -g quick-start-cli
 ```

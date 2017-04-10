@@ -4,6 +4,18 @@
 
 ![](./resource/banner.jpg)
 
+## 版本说明
+### 2.1.0
+加入了ng4**局部热替换**功能，较官方脚手架的全局刷新，有更好的开发体验
+
+### 2.0.0
+ng版本更新到^4.0.0，angular项目的webpack更新到^2.0.0
+
+### 1.\*.\*
+
+主要由webpack1 + ng2/vue2/react + less/sass/stylus来创建项目
+
+
 ## 脚手架特性
 框架支持
 - Angular2
@@ -96,5 +108,9 @@ npm run build
 ```bash
 npm run doc
 ```
+
+## 即将升级的功能
+
+vue2/react也将在近期升级到^2.0.0
 
 

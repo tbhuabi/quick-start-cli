@@ -8,8 +8,4 @@ import './assets/stylus/index.styl';
 if (process.env.ENV === 'production') {
     enableProdMode();
 }
-declare let module: any;
-if (module.hot) {
-    module.hot.accept();
-}
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -6,8 +6,7 @@ const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
 const cssTest = require('./css-test');
 
-const isProduction = process.env.NODE_ENV == 'production';
-
+const isProduction = process.env.NODE_ENV === 'production';
 const appPath = globalConfig.appPath;
 
 
@@ -38,10 +37,17 @@ module.exports = {
             }]
         }, {
             test: /\.ts$/,
-            use: ['awesome-typescript-loader',  'angular2-template-loader']
+            use: ['awesome-typescript-loader', 'angular2-template-loader', './config/ng-hot-replacement-loader']
         }, {
             test: /\.html$/,
-            loader: 'html-loader'
+            use: [{
+                loader: 'html-loader',
+                options: {
+                    minimize: isProduction,
+                    removeAttributeQuotes: !isProduction,
+                    caseSensitive: isProduction
+                }
+            }]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             use: [{
@@ -63,7 +69,7 @@ module.exports = {
         }, {
             test: cssTest(cssConfig.language),
             include: publicPaths,
-            use: ExtractTextPlugin.extract({
+            use: isProduction ?  ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', {
                     loader: 'postcss-loader',
@@ -73,7 +79,14 @@ module.exports = {
                         }
                     }
                 }, `${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`]
-            })
+            }) : ['style-loader', 'css-loader', {
+                loader: 'postcss-loader',
+                options: {
+                    plugins() {
+                        return [require('autoprefixer')];
+                    }
+                }
+            }].concat(`${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`)
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,
@@ -88,10 +101,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor', 'polyfills']
-        }),
-        new HtmlWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(appPath, 'index.html'),
             favicon: path.resolve(appPath, 'assets/images/favicon.ico')

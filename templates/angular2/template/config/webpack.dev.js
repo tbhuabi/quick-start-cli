@@ -8,15 +8,9 @@ const commonConfig = require('./webpack.common');
 
 let config = Object.assign({}, commonConfig);
 
-let hotServer = 'webpack/hot/only-dev-server';
-
-let hotClient = 'webpack-hot-middleware/client?path=' + globalConfig.localPath + '__webpack_hmr&reload=true&noInfo=false&quiet=false';
 let entry = config.entry;
 Object.keys(entry).forEach(function (key) {
-    entry[key] = [hotClient, hotServer, entry[key]];
-    // if (key === 'app') {
-    //     entry[key].unshift(hotServer);
-    // }
+    entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client'].concat(entry[key]);
 });
 module.exports = webpackMerge(config, {
     devtool: 'cheap-module-source-map',
@@ -28,15 +22,8 @@ module.exports = webpackMerge(config, {
     },
     plugins: [
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
-        // new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
-    ],
-    // devServer: {
-    //     contentBase: "./public",//本地服务器所加载的页面所在的目录
-    //     colors: true,//终端中输出结果为彩色
-    //     historyApiFallback: true,//不跳转
-    //     inline: true//实时刷新
-    // }
+    ]
 });

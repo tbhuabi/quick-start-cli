@@ -23,11 +23,6 @@ CSS预处理语言支持
 
 ## 使用方法
 ### 全局安装
-如果使用angular2 + webpack1
-```bash
-npm install -g quick-start-cli@^1.0.0
-```
-如果使用angular4 + webpack2
 ```bash
 npm install -g quick-start-cli
 ```

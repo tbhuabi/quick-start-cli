@@ -8,27 +8,27 @@ const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '.
 module.exports = {
     devtool: 'inline-source-map',
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js']
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.ts$/,
-            loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+            use: ['awesome-typescript-loader', 'angular2-template-loader']
         }, {
             test: /\.html$/,
-            loader: 'html'
+            use: ['html-loader']
 
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'null'
+            use: ['null-loader']
         }, {
             test: cssTest(cssConfig.language),
             include: publicPaths,
-            loader: 'null'
+            use: ['null-loader']
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,
-            loader: `to-string!css${cssConfig.language ? '!' + cssConfig.language : ''}`
+            use: ['to-string-loader', 'css-loader'].concat(`${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`)
         }]
     }
 };

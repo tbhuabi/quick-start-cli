@@ -5,7 +5,7 @@
   "rules": {
     "no-attribute-parameter-decorator": true,
     "no-forward-ref": true,
-    "pipe-naming": [true, "camelCase", "sg"],
+    "pipe-naming": [true, "camelCase", ""],
     "template-to-ng-template": true,
     "directive-selector": [true, "attribute", "", "camelCase"],
     "component-selector": [true, "element", "", "kebab-case"],

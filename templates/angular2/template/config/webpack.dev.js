@@ -13,7 +13,7 @@ Object.keys(entry).forEach(function (key) {
     entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client'].concat(entry[key]);
 });
 module.exports = webpackMerge(config, {
-    devtool: 'cheap-module-source-map',
+    devtool: 'cheap-module-eval-source-map',
     output: {
         path: globalConfig.buildPath,
         publicPath: '/',

@@ -57,6 +57,7 @@
     "open": "0.0.5",
     "postcss": "^5.2.5",
     "postcss-loader": "^1.1.0",
+    "rimraf": "^2.6.1",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.7.0",
     "vue-style-loader": "^1.0.0",

@@ -61,6 +61,7 @@
     "open": "0.0.5",
     "postcss": "^5.2.5",
     "postcss-loader": "^1.0.0",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",

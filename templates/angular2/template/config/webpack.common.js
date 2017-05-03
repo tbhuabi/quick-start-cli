@@ -29,7 +29,7 @@ module.exports = {
             use: [{
                 loader: 'tslint-loader',
                 options: {
-                    configuration: require('./tslint.json'),
+                    configuration: require('../tslint.json'),
                     emitErrors: false,
                     failOnHint: false,
                     formatter: 'tslint-formatter-eslint-style'

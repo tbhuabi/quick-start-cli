@@ -5,6 +5,9 @@
 ![](./resource/banner.jpg)
 
 ## 版本说明
+### 2.2.0
+vue、react 升级到webpack@^2.4.0
+
 ### 2.1.0
 加入了ng4**局部热替换**功能，较官方脚手架的全局刷新，有更好的开发体验
 
@@ -46,18 +49,18 @@ qs -v
 ```bash
 qs -c
 ```
-比如创建一个angular2的项目，整个流程如下：
+比如创建一个angular的项目，整个流程如下：
 ```bash
 创建项目：
 ? 请输入项目名称： my-project
-? 请选择项目框架： angular2
+? 请选择项目框架： angular
 ? 请选择样式表语言： sass
 ? 请输入版本号： 1.0.0
 ? 请输入作者的名称： your name
 ? 请输入项目简介： demo project
 ================================================================================
     项目名称：my-project
-    项目框架：angular2
+    项目框架：angular
   样式表语言：sass
       版本号：1.0.0
         作者：your name
@@ -104,13 +107,16 @@ npm run test
 ```bash
 npm run build
 ```
+
+运行构建后的项目
+```bash
+npm run production
+```
+
 打开项目文档（暂时只支持angular2的项目）
 ```bash
 npm run doc
 ```
 
-## 即将升级的功能
-
-vue2/react也将在近期升级到^2.0.0
 
 

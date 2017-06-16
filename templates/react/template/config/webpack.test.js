@@ -9,31 +9,33 @@ const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '.
 module.exports = {
     devtool: 'inline-source-map',
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.jsx?$/,
-            loader: 'babel',
             include: appPath,
-            query: {
-                presets: ['es2015', 'react'],
-                compact: false
-            }
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015', 'react'],
+                    compact: false
+                }
+            }]
         }, {
             test: /\.html$/,
-            loader: 'html'
+            loader: 'html-loader'
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'url'
+            loader: 'url-loader'
         }, {
             test: cssTest(cssConfig.language),
             include: publicPaths,
-            loader: 'style!css!sass'
+            use: ['style-loader', 'css-loader', 'sass-loader']
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,
-            loader: `style!css?modules&localIdentName=[name]__[local]${cssConfig.language ? '!' + cssConfig.language : ''}`
+            use: ['style-lader', 'css-loader?modules&localIdentName=[name]__[local]', cssConfig.language + '-loader']
         }]
     }
-}
+};

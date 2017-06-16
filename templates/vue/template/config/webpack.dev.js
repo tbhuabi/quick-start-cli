@@ -8,15 +8,9 @@ const commonConfig = require('./webpack.common');
 
 let config = Object.assign({}, commonConfig);
 
-let polyfill = 'eventsource-polyfill';
-let hotServer = 'webpack/hot/dev-server';
-let hotClient = 'webpack-hot-middleware/client?reload=true&path=' + globalConfig.localPath + '__webpack_hmr'
 let entry = config.entry;
 Object.keys(entry).forEach(function (key) {
-    typeof entry[key] === 'string' ? entry[key] = [hotClient, entry[key]] : entry[key].unshift(hotClient);
-    if (key == 'app') {
-        entry[key].unshift(hotServer);
-    }
+    entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client', 'webpack/hot/only-dev-server'].concat(entry[key]);
 });
 module.exports = webpackMerge(config, {
     devtool: 'cheap-module-eval-source-map',
@@ -28,8 +22,8 @@ module.exports = webpackMerge(config, {
     },
     plugins: [
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 });

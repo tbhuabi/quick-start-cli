@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Route, BrowserRouter } from 'react-router-dom';
 import 'normalize.css';
 import './assets/stylus/index.styl';
 
@@ -16,9 +16,9 @@ function App() {
           <PageHeader />
         </div>
         <div className="page-content">
-          <Router history={browserHistory}>
+          <BrowserRouter>
             <Route path="/" component={Home} />
-          </Router>
+          </BrowserRouter>
         </div>
       </div>
       <div className="footer">

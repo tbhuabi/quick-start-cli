@@ -22,7 +22,7 @@ const questions = [{
 }, {
     name: 'projectType',
     type: 'rawlist',
-    choices: ['angular2', 'React', 'vue2'],
+    choices: ['angular', 'React', 'vue'],
     message: '请选择项目框架：'
 }, {
     name: 'cssLanguage',

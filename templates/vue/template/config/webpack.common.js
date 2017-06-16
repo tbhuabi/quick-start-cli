@@ -12,35 +12,34 @@ const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(appPath, '../
 
 module.exports = {
     entry: {
-        vendor: ['react', 'react-dom'],
-        app: path.resolve(appPath, 'app.jsx')
+        vendor: ['vue', 'vue-router'],
+        app: path.resolve(appPath, 'app.js')
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.vue'],
+        alias: {
+            vue$: 'vue/dist/vue'
+        }
     },
     module: {
         rules: [{
-            test: /\.jsx?$/,
+            test: /\.(vue|js)$/,
             enforce: 'pre',
             use: [{
                 loader: 'eslint-loader',
                 options: {
-                    configFile: path.resolve(__dirname, '../.eslintrc')
+                    formatter: require('eslint-friendly-formatter')
                 }
-            }]
+            }],
+            include: appPath,
+            exclude: /node_modules/
+        }, {
+            test: /\.vue$/,
+            use: ['vue-loader']
         }, {
             test: /\.jsx?$/,
-            include: appPath,
-            use: [{
-                loader: 'babel-loader',
-                options: {
-                    presets: ['es2015', 'react', 'stage-3'],
-                    compact: false
-                }
-            }, './config/react-hot-loader']
-        }, {
-            test: /\.html$/,
-            use: ['html-loader']
+            loader: 'babel-loader',
+            include: appPath
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             use: [{
@@ -63,7 +62,7 @@ module.exports = {
             test: cssTest(cssConfig.language),
             include: publicPaths,
             use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
+                fallback: 'vue-style-loader',
                 use: ['css-loader', {
                     loader: 'postcss-loader',
                     options: {
@@ -71,21 +70,19 @@ module.exports = {
                             return [require('autoprefixer')];
                         }
                     }
-                }, `${cssConfig.language}-loader`]
+                }, cssConfig.language + '-loader']
             })
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,
-            use: ['style-loader', {
-                loader: 'css-loader?modules&localIdentName=[name]__[local]'
-            }, {
+            use: ['vue-style-loader', 'css-loader', {
                 loader: 'postcss-loader',
                 options: {
                     plugins() {
                         return [require('autoprefixer')];
                     }
                 }
-            }, `${cssConfig.language}-loader`]
+            }, cssConfig.language + '-loader']
         }]
     },
     plugins: [

@@ -1,5 +1,5 @@
 {
-  "name": "ng4",
+  "name": "ng",
   "version": "1.0.0",
   "description": "A webpack starter for Angular",
   "main": "server/server.js",
@@ -9,7 +9,8 @@
     "doc": "cross-env NODE_ENV=documentation node server/doc-server.js",
     "pack": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize"
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize",
+    "production": "npm run build && node server/product-server.js"
   },
   "keywords": [
     "angular2",
@@ -22,20 +23,20 @@
   "author": "tanbo",
   "license": "ISC",
   "dependencies": {
-    "@angular/animations": "4.0.1",
-    "@angular/common": "4.0.1",
-    "@angular/compiler": "4.0.1",
-    "@angular/core": "4.0.1",
-    "@angular/forms": "4.0.1",
-    "@angular/http": "4.0.1",
-    "@angular/platform-browser": "4.0.1",
-    "@angular/platform-browser-dynamic": "4.0.1",
-    "@angular/router": "4.0.1",
+    "@angular/animations": "4.2.2",
+    "@angular/common": "4.2.2",
+    "@angular/compiler": "4.2.2",
+    "@angular/core": "4.2.2",
+    "@angular/forms": "4.2.2",
+    "@angular/http": "4.2.2",
+    "@angular/platform-browser": "4.2.2",
+    "@angular/platform-browser-dynamic": "4.2.2",
+    "@angular/router": "4.2.2",
     "bootstrap": "3.3.7",
     "core-js": "2.4.1",
     "normalize.css": "6.0.0",
-    "rxjs": "5.3.0",
-    "zone.js": "0.8.5"
+    "rxjs": "5.4.1",
+    "zone.js": "0.8.12"
   },
   "devDependencies": {
     "@types/jasmine": "2.5.47",
@@ -48,6 +49,7 @@
     "cross-env": "4.0.0",
     "css-loader": "0.28.0",
     "eventsource-polyfill": "0.9.6",
+    "express-favicon": "2.0.0",
     "express": "4.15.2",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",

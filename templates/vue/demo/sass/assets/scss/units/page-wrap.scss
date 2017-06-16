@@ -1,4 +1,4 @@
-@import "../varibles.styl";
+@import "../varibles.scss";
 
 html, body {
     height: 100%;
@@ -19,6 +19,14 @@ body .page {
     }
 }
 
+.page-wrap {
+    height: 100%;
+}
+
 .footer {
     height: $footer-height;
+}
+
+.page-wrap{
+    display: inline;
 }

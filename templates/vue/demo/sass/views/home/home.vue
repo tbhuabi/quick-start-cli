@@ -19,7 +19,7 @@
   }
 </script>
 
-<style lang="sass" rel="stylesheet/sass" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   @import "../../assets/scss/varibles.scss";
   .banner {
     width: 389px;

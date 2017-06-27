@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="sass" rel="stylesheet/sass" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   @import "../../assets/scss/varibles.scss";
   .footer-wrap {
     border-top: 1px solid #ccc;

@@ -5,6 +5,9 @@
 ![](./resource/banner.jpg)
 
 ## 版本说明
+### 2.3.0
+angular加入了aot优化
+
 ### 2.2.0
 vue、react 升级到webpack@^2.4.0
 

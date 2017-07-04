@@ -37,7 +37,7 @@ module.exports = {
             }]
         }, {
             test: /\.ts$/,
-            use: ['awesome-typescript-loader', 'angular2-template-loader', './config/ng-hot-replacement-loader']
+            use: isProduction ? ['@ngtools/webpack'] : ['awesome-typescript-loader', 'angular2-template-loader', './config/ng-hot-replacement-loader']
         }, {
             test: /\.html$/,
             use: [{

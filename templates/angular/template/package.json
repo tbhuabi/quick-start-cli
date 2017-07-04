@@ -39,6 +39,8 @@
     "zone.js": "0.8.12"
   },
   "devDependencies": {
+    "@angular/compiler-cli": "4.2.2",
+    "@ngtools/webpack": "1.5.0",
     "@types/jasmine": "2.5.47",
     "@types/node": "7.0.12",
     "angular2-template-loader": "0.6.2",

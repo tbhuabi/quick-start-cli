@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 const markdownIt = require('markdown-it');
 const hljs = require('highlight.js');
 const md = markdownIt({
-    highlight: function (str, lang) {
+    highlight: function (str: string, lang: string) {
         if (lang && hljs.getLanguage(lang)) {
             try {
                 return hljs.highlight(lang, str).value;
@@ -50,7 +50,7 @@ export class DocViewComponent implements OnInit {
 
     }
 
-    setShowType(type) {
+    setShowType(type: string) {
         this.showType = type;
     }
 }

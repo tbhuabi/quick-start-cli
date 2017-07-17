@@ -9,7 +9,7 @@ export class DateTimePickerExampleComponent {
     constructor(public activatedRoute: ActivatedRoute) {
     }
 
-    onSelected($event) {
+    onSelected($event: string) {
         this.value = $event;
     }
 }

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-const markdownIt = require('markdown-it');
-const hljs = require('highlight.js');
-const md = markdownIt({
+import * as marked from 'marked';
+import * as hljs from 'highlight.js';
+
+let cssLanguage = require('../../../config/css-config.json').language;
+
+const md = marked.setOptions({
     highlight: function (str: string, lang: string) {
         if (lang && hljs.getLanguage(lang)) {
             try {
                 return hljs.highlight(lang, str).value;
             } catch (e) {
-                console.log(e);
+                console.error(e);
             }
         }
 
@@ -38,13 +41,16 @@ export class DocViewComponent implements OnInit {
         if (value) {
             const doc = value.doc || '';
             const styleSheet = value.styleSheet || '';
-            const template = value.html || '';
             const ts = value.ts || '';
-            this.docHtml = md.render(doc);
-            this.templateHtml = md.render('```html\n' + template + '\n```');
-            this.tsHtml = md.render('```ts\n' + ts + '\n```');
+            let template = value.html || '';
+            template = template.replace(/^[\s\n]*<doc-view>[\s\n]*|[\s\n]*<\/doc-view>[\s\n]*$/g, '');
+            template = template.replace(/^\s\s/mg, '');
+
+            this.docHtml = md(doc);
+            this.templateHtml = md('```html\n' + template + '\n```');
+            this.tsHtml = md('```ts\n' + ts + '\n```');
             if (styleSheet) {
-                this.styleSheetHtml = md.render('```scss\n' + styleSheet + '\n```');
+                this.styleSheetHtml = md('```' + cssLanguage + '\n' + styleSheet + '\n```');
             }
         }
 

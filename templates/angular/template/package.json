@@ -43,6 +43,7 @@
   "devDependencies": {
     "@angular/compiler-cli": "4.2.2",
     "@ngtools/webpack": "1.5.0",
+    "@types/codemirror": "0.0.42",
     "@types/highlight.js": "9.1.9",
     "@types/jasmine": "2.5.47",
     "@types/marked": "0.0.28",

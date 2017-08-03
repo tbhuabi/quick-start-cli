@@ -24,6 +24,14 @@ module.exports = webpackMerge(commonConfig, {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,
+            },
+            compress: {
+                warnings: false
+            }
+        }),
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css')),
         new webpack.DefinePlugin({
             'process.env': {

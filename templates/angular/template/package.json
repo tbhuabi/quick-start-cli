@@ -9,9 +9,8 @@
     "doc": "cross-env NODE_ENV=documentation node server/doc-server.js",
     "pack": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
-    "build": "rimraf dist aot && npm run ngc && cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize",
-    "production": "npm run build && node server/product-server.js",
-    "ngc": "node_modules/.bin/ngc -p tsconfig.json"
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail --optimize-minimize",
+    "production": "npm run build && node server/product-server.js"
   },
   "keywords": [
     "angular2",
@@ -54,6 +53,7 @@
     "connect-history-api-fallback": "1.3.0",
     "cross-env": "4.0.0",
     "css-loader": "0.28.0",
+    "enhanced-resolve": "3.3.0",
     "eventsource-polyfill": "0.9.6",
     "express-favicon": "2.0.0",
     "express": "4.15.2",

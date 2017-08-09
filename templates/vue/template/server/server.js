@@ -27,11 +27,11 @@ app.use('/api', httpProxyMiddleware({
 }));
 
 app.use(historyApiFallback({
-    index: globalConfig.localPath
+    index: globalConfig.domain
 }));
 
 app.use(webpackDevMiddleware(compiler, {
-    publicPath: globalConfig.localPath,
+    publicPath: globalConfig.domain,
     stats: {
         colors: true,
         chunks: false
@@ -45,5 +45,5 @@ app.listen(globalConfig.port, globalConfig.ip, error => {
         console.log(error);
         return;
     }
-    open(globalConfig.localPath);
+    open(globalConfig.domain);
 });

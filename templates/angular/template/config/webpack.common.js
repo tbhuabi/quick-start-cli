@@ -20,7 +20,7 @@ module.exports = {
         app: path.resolve(appPath, 'main.ts')
     },
     resolve: {
-        extensions: ['.js', '.ts']
+        extensions: ['.ts', '.js']
     },
     module: {
         rules: [{

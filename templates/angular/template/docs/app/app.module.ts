@@ -3,7 +3,7 @@ import { BrowserModule, Title }  from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from '../pages/components/components.module';
 
 // 主组件
 import { AppComponent } from './app';

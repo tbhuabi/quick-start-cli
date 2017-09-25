@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "4.3.5",
-    "@ngtools/webpack": "1.5.0",
+    "@ngtools/webpack": "1.7.1",
     "@types/codemirror": "0.0.42",
     "@types/highlight.js": "9.1.9",
     "@types/jasmine": "2.5.47",

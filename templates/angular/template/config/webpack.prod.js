@@ -17,9 +17,10 @@ module.exports = webpackMerge(commonConfig, {
         chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[id].[hash].chunk.js')
     },
     plugins: [
-        new ngAot.AotPlugin({
-            tsConfigPath: 'tsconfig.json',
-            mainPath: 'src/main.ts'
+        new ngAot.AngularCompilerPlugin({
+            tsConfigPath: path.resolve(__dirname, '../tsconfig.json'),
+            entryModule: 'src/app/app.module#AppModule',
+            sourceMap: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']

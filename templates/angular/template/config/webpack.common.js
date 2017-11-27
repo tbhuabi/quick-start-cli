@@ -36,7 +36,7 @@ module.exports = {
                 }
             }]
         }, {
-            test: /\.ts$/,
+            test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
             use: isProduction ? ['@ngtools/webpack'] : ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader', './config/ng-hot-replacement-loader']
         }, {
             test: /\.html$/,
@@ -78,24 +78,26 @@ module.exports = {
                             return [require('autoprefixer')];
                         }
                     }
-                }, `${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`]
-            }) : ['style-loader', 'css-loader', {
+                }].concat(`${cssConfig.language ? cssConfig.language + '-loader' : ''}`)
+            }) : ['style-loader', 'css-loader?sourceMap', {
                 loader: 'postcss-loader',
                 options: {
                     plugins() {
                         return [require('autoprefixer')];
-                    }
+                    },
+                    sourceMap: true
                 }
             }].concat(`${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`)
         }, {
             test: cssTest(cssConfig.language),
             exclude: publicPaths,
-            use: ['to-string-loader', 'css-loader', {
+            use: ['to-string-loader', 'css-loader?sourceMap', {
                 loader: 'postcss-loader',
                 options: {
                     plugins() {
                         return [require('autoprefixer')];
-                    }
+                    },
+                    sourceMap: true
                 }
             }, `${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`]
         }]

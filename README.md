@@ -5,6 +5,9 @@
 ![](./resource/banner.jpg)
 
 ## 版本说明
+### 2.3.16
+angular项目版本升级到v5，相关配置都升级到最新
+
 ### 2.3.0
 angular加入了aot优化
 

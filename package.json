@@ -1,6 +1,6 @@
 {
   "name": "quick-start-cli",
-  "version": "2.3.15",
+  "version": "2.3.16",
   "description": "",
   "main": "./src/index.js",
   "scripts": {

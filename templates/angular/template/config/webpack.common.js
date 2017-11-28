@@ -112,6 +112,7 @@ module.exports = {
                 let order2 = order.indexOf(m.names[0]);
                 return order1 - order2;
             }
-        })
+        }),
+        new webpack.ContextReplacementPlugin(/angular(\\|\/)core/, globalConfig.appPath)
     ]
 };

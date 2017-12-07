@@ -24,6 +24,7 @@ module.exports = webpackMerge(config, {
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.ContextReplacementPlugin(/angular(\\|\/)core/, globalConfig.appPath)
     ]
 });

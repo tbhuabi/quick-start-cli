@@ -13,8 +13,7 @@
     "production": "npm run build && node server/product-server.js"
   },
   "keywords": [
-    "angular2",
-    "ng2",
+    "angular",
     "typescript",
     "ts",
     "webpack",

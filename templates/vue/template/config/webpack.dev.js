@@ -10,7 +10,7 @@ let config = Object.assign({}, commonConfig);
 
 let entry = config.entry;
 Object.keys(entry).forEach(function (key) {
-    entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client', 'webpack/hot/only-dev-server'].concat(entry[key]);
+    entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client'].concat(entry[key]);
 });
 module.exports = webpackMerge(config, {
     devtool: 'cheap-module-eval-source-map',

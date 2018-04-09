@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development node server/server.js",
-    "doc": "cross-env NODE_ENV=documentation node server/doc-server.js",
     "pack": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail",
@@ -31,7 +30,6 @@
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
     "@angular/router": "5.0.3",
-    "bootstrap": "3.3.7",
     "core-js": "2.5.1",
     "normalize.css": "7.0.0",
     "rxjs": "5.5.2",

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrap">
+  <div class="page-wrap" id="app">
     <div class="page">
       <div class="header">
         <page-header></page-header>

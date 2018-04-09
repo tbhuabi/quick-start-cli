@@ -5,6 +5,10 @@
 ![](./resource/banner.jpg)
 
 ## 版本说明
+### 3.0.0
+Vue 升级到最新版  
+angular 删除 doc 配置
+
 ### 2.3.16
 angular项目版本升级到v5，相关配置都升级到最新
 

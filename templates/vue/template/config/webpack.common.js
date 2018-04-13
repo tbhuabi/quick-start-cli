@@ -31,7 +31,6 @@ module.exports = {
                     formatter: require('eslint-friendly-formatter')
                 }
             }],
-            include: appPath,
             exclude: /node_modules/
         }, {
             test: /\.vue$/,

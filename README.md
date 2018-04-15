@@ -31,9 +31,9 @@ ng版本更新到^4.0.0，angular项目的webpack更新到^2.0.0
 
 ## 脚手架特性
 框架支持
-- Angular2
+- Angular
 - React
-- Vue2
+- Vue
 
 CSS预处理语言支持
 - less
@@ -44,7 +44,6 @@ CSS预处理语言支持
 - 本地HTTP服务，不依赖后端服务
 - 动态代理后端接口，实现前后端开发完全分离
 - 一行命令，打包压缩
-- 如果的angular2的项目，你还可以构建当前项目的文档
 
 ## 使用方法
 ### 全局安装
@@ -123,10 +122,6 @@ npm run build
 npm run production
 ```
 
-打开项目文档（暂时只支持angular2的项目）
-```bash
-npm run doc
-```
 
 
 

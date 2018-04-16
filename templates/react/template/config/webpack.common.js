@@ -5,8 +5,8 @@ const path = require('path');
 const cssConfig = require('./css-config.json');
 const cssTest = require('./css-test');
 
-const appPath = path.resolve(__dirname, '../src');
 const globalConfig = require('../global.config');
+const appPath = globalConfig.appPath;
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(appPath, '../node_modules')];
 

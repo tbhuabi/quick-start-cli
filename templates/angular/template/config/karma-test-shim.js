@@ -11,7 +11,9 @@ require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
 
-const appContext = require.context('../src', true, /\.spec\.ts/);
+const globalConfig = require('../global.config');
+
+const appContext = require.context(globalConfig.appPath, true, /\.spec\.ts/);
 
 appContext.keys().forEach(appContext);
 

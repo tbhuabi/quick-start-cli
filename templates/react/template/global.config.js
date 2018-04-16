@@ -17,7 +17,7 @@ if (onlinePublishPathPrefix) {
         onlinePublishPathPrefix = onlinePublishPathPrefix + '/';
     }
 } else {
-    onlinePublishPathPrefix = '/'
+    onlinePublishPathPrefix = '/';
 }
 
 module.exports = {

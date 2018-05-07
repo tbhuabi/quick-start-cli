@@ -50,7 +50,7 @@ const questions2 = [{
 module.exports = function buildProject() {
     log(chalk.blue('创建项目：'));
     inquirer.prompt(questions1).then(answers => {
-        if (answers.projectType === 'Vue') {
+        if (answers.projectType === 'React') {
             return inquirer.prompt([{
                 name: 'language',
                 type: 'rawlist',
@@ -82,7 +82,7 @@ module.exports = function buildProject() {
             `        作者：${chalk.green(answers.author)}`,
             `    项目简介：${chalk.green(answers.description)}`
         ];
-        if(answers.projectType === 'Vue') {
+        if(answers.projectType === 'React') {
             messages.splice(2, 0, `    开发语言：${chalk.green(answers.language)}`);
         }
 

@@ -39,11 +39,6 @@ module.exports = {
             }]
         }, {
             test: cssTest(cssConfig.language),
-            include: publicPaths,
-            use: ['vue-style-loader', 'css-loader', cssConfig.language + '-loader']
-        }, {
-            test: cssTest(cssConfig.language),
-            exclude: publicPaths,
             use: ['vue-style-loader', 'css-loader', cssConfig.language + '-loader']
         }]
     }

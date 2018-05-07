@@ -1,0 +1,32 @@
+@import "../varibles";
+
+html, body {
+    height: 100%;
+    font-size: 14px;
+    font-family: Arial;
+}
+
+body .page {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: $footer-height * -1;
+    .header {
+        height: $header-height;
+    }
+    .page-content {
+        padding-bottom: $footer-height;
+    }
+}
+
+.page-wrap {
+    height: 100%;
+}
+
+.footer {
+    height: $footer-height;
+}
+
+.page-wrap{
+    display: inline;
+}

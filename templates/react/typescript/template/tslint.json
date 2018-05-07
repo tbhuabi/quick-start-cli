@@ -1,0 +1,12 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "rules": {
+    "jsx-wrap-multiline": false,
+    "quotemark": false,
+    "ordered-imports": false,
+    "no-duplicate-imports": false,
+    "member-access": false,
+    "no-default-export": false,
+    "eofline": false
+  }
+}

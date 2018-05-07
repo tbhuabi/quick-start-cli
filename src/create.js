@@ -8,10 +8,23 @@ const log = require('./logger');
 const cssConfig = require('./css-config.json');
 
 module.exports = function (config) {
+    config.projectType = config.projectType.toLowerCase();
     line();
     log(chalk.green('正在创建项目……'));
 
-    const templateSource = path.resolve(__dirname, `../templates/${config.projectType.toLowerCase()}/template`);
+    let demoSource;
+    let packageJson;
+    let templateSource;
+    if (config.projectType === 'react') {
+        demoSource = path.resolve(__dirname, `../templates/${config.projectType}/${config.language}/demo/${config.cssLanguage}`);
+        packageJson = require(`../templates/${config.projectType}/${config.language}/template/package.json`);
+        templateSource = path.resolve(__dirname, `../templates/${config.projectType}/${config.language}/template`);
+    } else {
+        demoSource = path.resolve(__dirname, `../templates/${config.projectType}/demo/${config.cssLanguage}`);
+        packageJson = require(`../templates/${config.projectType}/template/package.json`);
+        templateSource = path.resolve(__dirname, `../templates/${config.projectType}/template`);
+    }
+
     const templateTarget = config.projectName;
 
     copy({
@@ -23,7 +36,7 @@ module.exports = function (config) {
         log(chalk.gray('**') + ' ' + message);
     });
 
-    const demoSource = path.resolve(__dirname, `../templates/${config.projectType}/demo/${config.cssLanguage}`);
+
     const demoTarget = path.join(config.projectName, 'src');
     copy({
         src: demoSource,
@@ -39,7 +52,6 @@ module.exports = function (config) {
             }
         });
 
-        let packageJson = require(`../templates/${config.projectType}/template/package.json`);
         let cssLoaderConfig = cssConfig[config.cssLanguage];
 
         packageJson.name = config.projectName;

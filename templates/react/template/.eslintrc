@@ -14,6 +14,20 @@
       {
         "ignoreComments": true
       }
-    ]
+    ],
+    "react/jsx-tag-spacing": 0,
+    "import/prefer-default-export": 0,
+    "eol-last": 0,
+    "react/prefer-stateless-function": 0,
+    "comma-dangle": 0,
+    "prefer-destructuring": 0,
+    "no-mixed-operators": 0,
+    "no-useless-concat": 0,
+    "prefer-template": 0,
+    "no-debugger": 1,
+    "class-methods-use-this": 0,
+    "padded-blocks": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   }
 }

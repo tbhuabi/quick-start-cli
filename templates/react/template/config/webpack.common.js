@@ -35,7 +35,7 @@ module.exports = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015', 'react', 'stage-3'],
+                    presets: ['env', 'react', 'stage-3'],
                     compact: false
                 }
             }, './config/react-hot-loader']

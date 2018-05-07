@@ -21,7 +21,7 @@ module.exports = function (config) {
         plugins: [
             require('karma-webpack'),
             require('karma-jasmine'),
-            require('karma-phantomjs-launcher'),
+            require('karma-chrome-launcher'),
             require('karma-sourcemap-loader')
         ],
         reporters: ['progress'],
@@ -29,7 +29,7 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         singleRun: true
     };
     config.set(_config);

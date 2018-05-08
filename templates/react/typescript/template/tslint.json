@@ -47,6 +47,10 @@
     "react-this-binding-issue": false,
     "prefer-template": false,
     "jsx-wrap-multiline": false,
-    "react-a11y-event-has-role": false
+    "react-a11y-event-has-role": false,
+    "no-console": false,
+    "newline-before-return": false,
+    "array-type": false,
+    "prefer-array-literal": false
   }
 }

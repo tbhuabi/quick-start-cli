@@ -1,12 +1,52 @@
 {
-  "extends": ["tslint:latest", "tslint-react"],
+  "rulesDirectory": ["tslint-microsoft-contrib"],
+  "extends": "tslint-microsoft-contrib/recommended_ruleset",
   "rules": {
-    "jsx-wrap-multiline": false,
-    "quotemark": false,
+    "align": [true, "parameters", "statements"],
+    "export-name": [0],
+    "import-name": [0],
+    "max-line-length": [true, 120],
+    "member-ordering": [true, {
+      "order": [
+        "public-static-field",
+        "protected-static-field",
+        "private-static-field",
+        "public-instance-field",
+        "protected-instance-field",
+        "private-instance-field",
+        "constructor",
+        "public-static-method",
+        "protected-static-method",
+        "private-static-method"
+      ]
+    }
+    ],
+    "missing-jsdoc": [0],
+    "no-angle-bracket-type-assertion": true,
+    "no-any": false,
+    "no-cookies": [0],
+    "no-default-export": [0],
+    "no-empty-line-after-opening-brace": true,
+    "no-http-string": false,
+    "no-relative-imports": [0],
+    "no-require-imports": false,
+    "no-unused-variable": [true, {"ignore-pattern": "^React$"}],
+    "no-var-requires": false,
+    "prefer-type-cast": false,
+    "switch-default": false,
+    "trailing-comma": [false, {"multiline": "never", "singleline": "never"}],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
+    "member-access": false,
+    "typedef": false,
     "ordered-imports": false,
     "no-duplicate-imports": false,
-    "member-access": false,
-    "no-default-export": false,
-    "eofline": false
+    "interface-name": false,
+    "no-object-literal-type-assertion": false,
+    "eofline": false,
+    "quotemark": false,
+    "react-this-binding-issue": false,
+    "prefer-template": false,
+    "jsx-wrap-multiline": false,
+    "react-a11y-event-has-role": false
   }
 }

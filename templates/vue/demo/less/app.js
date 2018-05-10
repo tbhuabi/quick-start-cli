@@ -3,7 +3,7 @@ import Vue from 'vue'
 import App from './views/app.vue'
 import './components'
 import 'normalize.css'
-import './assets/scss/index.less'
+import './assets/less/index.less'
 import router from './routes'
 
 const vm = new Vue({

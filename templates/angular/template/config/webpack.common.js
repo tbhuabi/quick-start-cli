@@ -37,7 +37,12 @@ module.exports = {
             }]
         }, {
             test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-            use: isProduction ? ['@ngtools/webpack'] : ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader', 'angular-hot-reload-loader']
+            use: isProduction ? ['@ngtools/webpack'] : ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader', {
+                loader: 'angular-hot-reload-loader',
+                options: {
+                    rootModule: './src/app/app.module#AppModule'
+                }
+            }]
         }, {
             test: /\.html$/,
             use: [{

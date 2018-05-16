@@ -41,7 +41,7 @@
     "@ngtools/webpack": "1.8.4",
     "@types/jasmine": "2.8.2",
     "@types/node": "8.0.53",
-    "angular-hot-reload-loader": "1.0.1",
+    "angular-hot-reload-loader": "1.0.2",
     "angular2-template-loader": "0.6.2",
     "autoprefixer": "7.1.6",
     "awesome-typescript-loader": "3.4.0",

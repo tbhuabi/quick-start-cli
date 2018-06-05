@@ -6,6 +6,9 @@
 
 ## 版本说明
 
+### 3.4.0
+angular 升级到 6.*，webpack 升级到 4.*
+
 ### 3.2.0
 React 增加Typescript选项
 

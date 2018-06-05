@@ -4,6 +4,7 @@ const path = require('path');
 const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
 const cssTest = require('./css-test');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const appPath = globalConfig.appPath;
@@ -119,6 +120,9 @@ module.exports = {
         }]
     },
     plugins: [
+        new FilterWarningsPlugin({
+            exclude: /System.import\(\) is deprecated and will be removed soon. Use import\(\) instead\./
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(appPath, 'index.html'),
             favicon: path.resolve(appPath, 'assets/images/favicon.ico'),

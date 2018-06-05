@@ -9,6 +9,7 @@ const globalConfig = require('../global.config');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
+    mode: 'production',
     devtool: 'source-map',
     output: {
         path: globalConfig.buildPath,
@@ -25,22 +26,6 @@ module.exports = webpackMerge(commonConfig, {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
         }),
-        new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css')),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'ENV': JSON.stringify(ENV)
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            beautify: false,
-            comments: false,
-            compress: {
-                warnings: false,
-                drop_console: true,
-                collapse_vars: true,
-                reduce_vars: true,
-            }
-        })
+        new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css'))
     ]
 });

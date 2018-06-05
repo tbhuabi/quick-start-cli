@@ -13,6 +13,7 @@ Object.keys(entry).forEach(function (key) {
     entry[key] = ['eventsource-polyfill', 'webpack-hot-middleware/client'].concat(entry[key]);
 });
 module.exports = webpackMerge(config, {
+    mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     output: {
         path: globalConfig.buildPath,
@@ -23,7 +24,6 @@ module.exports = webpackMerge(config, {
     plugins: [
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ContextReplacementPlugin(/angular(\\|\/)core/, globalConfig.appPath)
     ]

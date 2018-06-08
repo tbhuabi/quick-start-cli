@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
@@ -9,14 +10,11 @@ const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const appPath = globalConfig.appPath;
 
-
 const commonStaticPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
-
 
 module.exports = {
     entry: {
         polyfills: path.resolve(appPath, 'polyfills.ts'),
-        vendor: path.resolve(appPath, 'vendor.ts'),
         app: path.resolve(appPath, 'main.ts')
     },
     resolve: {
@@ -131,6 +129,11 @@ module.exports = {
                 let order1 = order.indexOf(n.names[0]);
                 let order2 = order.indexOf(m.names[0]);
                 return order1 - order2;
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                ENV: JSON.stringify(isProduction ? 'production' : 'development')
             }
         })
     ]

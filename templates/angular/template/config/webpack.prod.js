@@ -12,7 +12,7 @@ module.exports = webpackMerge(commonConfig, {
         path: globalConfig.buildPath,
         publicPath: globalConfig.onlinePublishPathPrefix,
         filename: path.posix.join(globalConfig.staticPublicPath, 'js/[name].[hash].js'),
-        chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[id].[hash].chunk.js')
+        chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[name].[hash].chunk.js')
     },
     plugins: [
         new ngAot.AngularCompilerPlugin({
@@ -21,5 +21,29 @@ module.exports = webpackMerge(commonConfig, {
             sourceMap: true
         }),
         new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css'))
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'all',
+                    test: /\/node_modules\/@angular.*\.(js|ts)$/,
+                    name: 'vendor',
+                    minChunks: 1,
+                    maxInitialRequests: 5,
+                    minSize: 10,
+                    priority: 2
+                },
+                polyfills: {
+                    chunks: 'all',
+                    test: /\/node_modules\/(core-js|zone\.js)/,
+                    name: 'polyfills',
+                    minChunks: 1,
+                    maxInitialRequests: 5,
+                    minSize: 0,
+                    priority: 2
+                }
+            }
+        }
+    }
 });

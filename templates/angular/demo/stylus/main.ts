@@ -6,6 +6,6 @@ import 'normalize.css';
 import './assets/stylus/index.styl';
 
 if (process.env.ENV === 'production') {
-    enableProdMode();
+  enableProdMode();
 }
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -12,19 +12,19 @@ const domain = 'http://' + localIp + ':' + port + '/';
 let onlinePublishPathPrefix = process.env.ASSETS_PATH;
 
 if (onlinePublishPathPrefix) {
-    if (!/\/$/.test(onlinePublishPathPrefix)) {
-        onlinePublishPathPrefix = onlinePublishPathPrefix + '/';
-    }
+  if (!/\/$/.test(onlinePublishPathPrefix)) {
+    onlinePublishPathPrefix = onlinePublishPathPrefix + '/';
+  }
 } else {
-    onlinePublishPathPrefix = '/';
+  onlinePublishPathPrefix = '/';
 }
 
 module.exports = {
-    ip: localIp,
-    port,
-    domain,
-    buildPath,
-    staticPublicPath: 'static/',
-    onlinePublishPathPrefix,
-    appPath
+  ip: localIp,
+  port,
+  domain,
+  buildPath,
+  staticPublicPath: 'static/',
+  onlinePublishPathPrefix,
+  appPath
 };

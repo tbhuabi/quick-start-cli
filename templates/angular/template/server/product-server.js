@@ -18,9 +18,9 @@ app.use(express.static(appBasePath));
 app.use(favicon('/favicon.ico'));
 
 app.listen(appPort, globalConfig.ip, error => {
-    if (error) {
-        console.log(error);
-        return;
-    }
-    open('http://' + globalConfig.ip + ':' + appPort);
+  if (error) {
+    console.log(error);
+    return;
+  }
+  open('http://' + globalConfig.ip + ':' + appPort);
 });

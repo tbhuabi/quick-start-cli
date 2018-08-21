@@ -17,33 +17,33 @@ const app = express();
 
 
 app.use('/api', httpProxyMiddleware({
-    target: proxyConfig.api[0],
-    pathRewrite: {
-        '^/api/': '/'
-    },
-    onProxyReq(proxyRequest, request, response) {
-        console.log(`请求：${request.url}，代理到${proxyConfig.api[1]}：${proxyConfig.api[0]}${proxyRequest.path}`)
-    }
+  target: proxyConfig.api[0],
+  pathRewrite: {
+    '^/api/': '/'
+  },
+  onProxyReq(proxyRequest, request, response) {
+    console.log(`请求：${request.url}\n\t代理到${proxyConfig.api[1]}：${proxyConfig.api[0]}${proxyRequest.path}`)
+  }
 }));
 
 app.use(historyApiFallback({
-    index: globalConfig.domain
+  index: globalConfig.domain
 }));
 
 app.use(webpackDevMiddleware(compiler, {
-    publicPath: globalConfig.domain,
-    stats: {
-        colors: true,
-        chunks: false
-    }
+  publicPath: globalConfig.domain,
+  stats: {
+    colors: true,
+    chunks: false
+  }
 }));
 app.use(webpackHotMiddleware(compiler));
 
 
 app.listen(globalConfig.port, globalConfig.ip, error => {
-    if (error) {
-        console.log(error);
-        return;
-    }
-    open(globalConfig.domain);
+  if (error) {
+    console.log(error);
+    return;
+  }
+  open(globalConfig.domain);
 });

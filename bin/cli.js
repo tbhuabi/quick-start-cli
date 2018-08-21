@@ -7,7 +7,6 @@ const program = require('commander');
 
 const packageJson = require('../package.json');
 const index = require('../src/index');
-const log = require('../src/logger');
 
 program
     .version(packageJson.version)

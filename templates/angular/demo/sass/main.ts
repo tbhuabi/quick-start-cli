@@ -6,6 +6,6 @@ import 'normalize.css';
 import './assets/scss/index.scss';
 
 if (process.env.ENV === 'production') {
-    enableProdMode();
+  enableProdMode();
 }
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -1,0 +1,83 @@
+{
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-forward-ref": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [true, "camelCase", ""],
+    "directive-selector": [true, "attribute", "op", "kebab-case"],
+    "component-selector": [true, "element", "op", "kebab-case"],
+    "component-class-suffix": [true, "Component"],
+    "directive-class-suffix": [true, "Directive"],
+    "class-name": true,
+    "curly": false,
+    "eofline": false,
+    "max-line-length": [
+      true,
+      120
+    ],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "member-ordering": [
+      true,
+      "public-before-private",
+      "static-before-instance",
+      "variables-before-functions"
+    ],
+    "no-arg": true,
+    "no-construct": true,
+    "no-duplicate-variable": true,
+    "no-empty": true,
+    "no-eval": true,
+    "no-trailing-whitespace": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "no-default-export": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "jsdoc-format": true,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": true,
+    "trailing-comma": true,
+    "triple-equals": true,
+    "variable-name": false,
+    "import-destructuring-spacing": true,
+    "no-consecutive-blank-lines": true,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-module",
+      "check-operator",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ]
+  }
+}

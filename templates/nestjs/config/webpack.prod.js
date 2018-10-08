@@ -17,7 +17,7 @@ module.exports = webpackMerge(commonConfig, {
   plugins: [
     new ngAot.AngularCompilerPlugin({
       tsConfigPath: path.resolve(__dirname, '../tsconfig.json'),
-      entryModule: path.join(globalConfig.appPath, './app/app.module#AppModule'),
+      entryModule: path.join(globalConfig.clientPath, './app/app.module#AppModule'),
       sourceMap: true
     }),
     new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css'))

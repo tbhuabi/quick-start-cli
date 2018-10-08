@@ -11,7 +11,6 @@ clear();
 line();
 banner();
 line();
-
 const questions1 = [{
   name: 'projectName',
   type: 'input',
@@ -22,7 +21,7 @@ const questions1 = [{
 }, {
   name: 'projectType',
   type: 'rawlist',
-  choices: ['Angular', 'React', 'Vue'],
+  choices: ['Angular', 'React', 'Vue', 'Nestjs'],
   message: '请选择项目框架：'
 }];
 
@@ -31,21 +30,6 @@ const questions2 = [{
   type: 'rawlist',
   choices: ['sass', 'less', 'stylus'],
   message: '请选择样式表语言：'
-}, {
-  name: 'version',
-  type: 'input',
-  message: '请输入版本号(可选)：',
-  validate(value) {
-    return /^\d+\.\d+\.\d+$/.test(value) || !value ? true : '请输入正确的版本号，如：1.0.0'
-  }
-}, {
-  name: 'author',
-  type: 'input',
-  message: '请输入作者的名称(可选)：'
-}, {
-  name: 'description',
-  type: 'input',
-  message: '请输入项目简介(可选)：'
 }];
 module.exports = function buildProject() {
   log(chalk.blue('创建项目：'));
@@ -64,6 +48,9 @@ module.exports = function buildProject() {
 
     return answers;
   }).then(answers => {
+    if (answers.projectType === 'Nestjs') {
+      return answers;
+    }
     return inquirer.prompt(questions2).then(result => {
       for (let key in result) {
         if (result.hasOwnProperty(key)) {
@@ -78,9 +65,6 @@ module.exports = function buildProject() {
       `    项目名称：${chalk.green(answers.projectName)}`,
       `    项目框架：${chalk.green(answers.projectType)}`,
       `  样式表语言：${chalk.green(answers.cssLanguage)}`,
-      `      版本号：${chalk.green(answers.version)}`,
-      `        作者：${chalk.green(answers.author)}`,
-      `    项目简介：${chalk.green(answers.description)}`
     ];
     if (answers.projectType === 'React') {
       messages.splice(2, 0, `    开发语言：${chalk.green(answers.language)}`);

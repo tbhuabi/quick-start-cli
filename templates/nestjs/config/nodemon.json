@@ -1,0 +1,6 @@
+{
+  "watch": ["server"],
+  "ext": "ts",
+  "ignore": ["**/*.spec.ts"],
+  "exec": "node --inspect -r ./config/ts-node.config.js server/main.ts"
+}

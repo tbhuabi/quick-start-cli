@@ -5,7 +5,6 @@ const chalk = require('chalk');
 
 const line = require('./line');
 const log = require('./logger');
-const cssConfig = require('./css-config.json');
 
 module.exports = function (config) {
   config.projectType = config.projectType.toLowerCase();
@@ -15,7 +14,9 @@ module.exports = function (config) {
   let demoSource;
   let packageJson;
   let templateSource;
-  if (config.projectType === 'react') {
+  if (config.projectType === 'nestjs') {
+    templateSource = path.resolve(__dirname, `../templates/${config.projectType}`);
+  } else if (config.projectType === 'react') {
     demoSource = path.resolve(__dirname, `../templates/${config.projectType}/${config.language}/demo/${config.cssLanguage}`);
     packageJson = require(`../templates/${config.projectType}/${config.language}/template/package.json`);
     templateSource = path.resolve(__dirname, `../templates/${config.projectType}/${config.language}/template`);
@@ -36,6 +37,11 @@ module.exports = function (config) {
     log(chalk.gray('**') + ' ' + message);
   });
 
+  if (config.projectType === 'nestjs') {
+    log(chalk.green('项目创建完成！'));
+    return;
+  }
+
 
   const demoTarget = path.join(config.projectName, 'src');
   copy({
@@ -51,19 +57,6 @@ module.exports = function (config) {
         log(chalk.red(error))
       }
     });
-
-    let cssLoaderConfig = cssConfig[config.cssLanguage];
-
-    packageJson.name = config.projectName;
-    if (config.version) {
-      packageJson.version = config.version;
-    }
-    if (config.author) {
-      packageJson.author = config.author;
-    }
-    if (config.description) {
-      packageJson.description = config.description;
-    }
 
 
     for (let key in cssLoaderConfig) {

@@ -8,14 +8,14 @@ const cssTest = require('./css-test');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
-const appPath = globalConfig.appPath;
+const clientPath = globalConfig.clientPath;
 
-const commonStaticPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
+const commonStaticPaths = [path.resolve(clientPath, 'assets'), path.resolve(__dirname, '../node_modules')];
 
 module.exports = {
   entry: {
-    polyfills: path.resolve(appPath, 'polyfills.ts'),
-    app: path.resolve(appPath, 'main.ts')
+    polyfills: path.resolve(clientPath, 'polyfills.ts'),
+    app: path.resolve(clientPath, 'main.ts')
   },
   resolve: {
     extensions: ['.ts', '.js']
@@ -28,7 +28,7 @@ module.exports = {
       use: [{
         loader: 'tslint-loader',
         options: {
-          configuration: require('../tslint.json'),
+          configuration: require('../views/tslint.json'),
           emitErrors: false,
           failOnHint: false,
           formatter: 'tslint-formatter-eslint-style'
@@ -39,7 +39,7 @@ module.exports = {
       use: isProduction ? ['@ngtools/webpack'] : ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader', {
         loader: 'angular-hot-reload-loader',
         options: {
-          rootModule: path.join(appPath, './app/app.module#AppModule')
+          rootModule: path.join(clientPath, './app/app.module#AppModule')
         }
       }]
     }, {
@@ -122,8 +122,8 @@ module.exports = {
       exclude: /System.import\(\) is deprecated and will be removed soon. Use import\(\) instead\./
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(appPath, 'index.html'),
-      favicon: path.resolve(appPath, 'assets/images/favicon.ico'),
+      template: path.resolve(clientPath, 'index.html'),
+      favicon: path.resolve(clientPath, 'assets/images/favicon.ico'),
       chunksSortMode(n, m) {
         let order = ['polyfills', 'vendor', 'app'];
         let order1 = order.indexOf(n.names[0]);
@@ -133,7 +133,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        ENV: JSON.stringify(isProduction ? 'production' : 'development')
+        ENV: JSON.stringify(isProduction ? 'production' : 'development'),
+        PATH_PREFIX: JSON.stringify(globalConfig.onlinePublishPathPrefix)
       }
     })
   ]

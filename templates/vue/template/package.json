@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "Vue-starter",
   "version": "1.0.0",
   "description": "A webpack starter for Vue2",
   "main": "server/server.js",
@@ -16,8 +16,7 @@
     "webpack",
     "es6"
   ],
-  "author": "tanbo",
-  "license": "ISC",
+  "author": "",
   "dependencies": {
     "normalize.css": "8.0.0",
     "vue": "2.5.16",

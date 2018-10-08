@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "React-starter",
   "version": "1.0.0",
   "description": "A webpack starter for React",
   "main": "server/server.js",
@@ -16,8 +16,7 @@
     "webpack",
     "es6"
   ],
-  "author": "tanbo",
-  "license": "ISC",
+  "author": "",
   "dependencies": {
     "normalize.css": "8.0.0",
     "prop-types": "15.6.1",

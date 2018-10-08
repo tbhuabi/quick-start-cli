@@ -5,8 +5,6 @@
   "main": "server/server.js",
   "private": true,
   "scripts": {
-    "pack": "webpack-dev-server --inline --progress --port 8080",
-    "test": "karma start",
     "dev:client": "cross-env NODE_ENV=development node config/dev-server.js",
     "dev:server": "nodemon --config config/nodemon.json",
     "build:client": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail",

@@ -33,15 +33,16 @@ module.exports = function (config) {
     dest: templateTarget
   }, () => {
     log('--项目模板创建完成--');
+    if (config.projectType === 'nestjs') {
+      log(chalk.green('项目创建完成！'));
+    }
   }).on('log', message => {
     log(chalk.gray('**') + ' ' + message);
   });
 
   if (config.projectType === 'nestjs') {
-    log(chalk.green('项目创建完成！'));
     return;
   }
-
 
   const demoTarget = path.join(config.projectName, 'src');
   copy({

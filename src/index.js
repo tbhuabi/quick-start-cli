@@ -64,7 +64,7 @@ module.exports = function buildProject() {
     let messages = [
       `    项目名称：${chalk.green(answers.projectName)}`,
       `    项目框架：${chalk.green(answers.projectType)}`,
-      `  样式表语言：${chalk.green(answers.cssLanguage)}`,
+      answers.projectType === 'Nestjs' ? '' : `  样式表语言：${chalk.green(answers.cssLanguage)}`,
     ];
     if (answers.projectType === 'React') {
       messages.splice(2, 0, `    开发语言：${chalk.green(answers.language)}`);

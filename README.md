@@ -6,6 +6,9 @@
 
 ## 版本说明
 
+### 3.7.3
+添加了 nestjs + angular + sass 的选项
+
 ### 3.4.0
 angular 升级到 6.*，webpack 升级到 4.*
 

@@ -1,6 +1,6 @@
 const ngAot = require('@ngtools/webpack');
 const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const commonConfig = require('./webpack.common.js');
 const path = require('path');
 const globalConfig = require('../global.config');
@@ -20,7 +20,10 @@ module.exports = webpackMerge(commonConfig, {
       entryModule: path.join(globalConfig.clientPath, './app/app.module#AppModule'),
       sourceMap: true
     }),
-    new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css'))
+    new MiniCssExtractPlugin({
+      filename: path.posix.join(globalConfig.staticPublicPath, 'css/[name].[hash].css'),
+      chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'css/[id].[hash].css')
+    })
   ],
   optimization: {
     splitChunks: {

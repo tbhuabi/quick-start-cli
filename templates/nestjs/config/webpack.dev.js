@@ -1,5 +1,5 @@
 const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const globalConfig = require('../global.config');
 const path = require('path');
@@ -22,7 +22,10 @@ module.exports = webpackMerge(config, {
     chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'js/[id].chunk.js')
   },
   plugins: [
-    new ExtractTextPlugin(path.posix.join(globalConfig.staticPublicPath, 'css/[name].css')),
+    new MiniCssExtractPlugin({
+      filename: path.posix.join(globalConfig.staticPublicPath, 'css/[name].css'),
+      chunkFilename: path.posix.join(globalConfig.staticPublicPath, 'css/[id].css')
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ContextReplacementPlugin(/angular(\\|\/)core/, globalConfig.clientPath)

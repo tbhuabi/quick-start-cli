@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
@@ -73,9 +73,7 @@ module.exports = {
     }, {
       test: cssTest(cssConfig.language),
       include: commonStaticPaths,
-      use: isProduction ? ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [{
+      use: isProduction ? [MiniCssExtractPlugin.loader, {
           loader: 'css-loader',
           options: {
             minimize: true
@@ -87,16 +85,16 @@ module.exports = {
               return [require('autoprefixer')];
             }
           }
-        }].concat(`${cssConfig.language ? cssConfig.language + '-loader' : ''}`)
-      }) : ['style-loader', 'css-loader?sourceMap', {
-        loader: 'postcss-loader',
-        options: {
-          plugins() {
-            return [require('autoprefixer')];
-          },
-          sourceMap: true
-        }
-      }].concat(`${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`)
+        }].concat(`${cssConfig.language ? cssConfig.language + '-loader' : ''}`) :
+        ['style-loader', 'css-loader?sourceMap', {
+          loader: 'postcss-loader',
+          options: {
+            plugins() {
+              return [require('autoprefixer')];
+            },
+            sourceMap: true
+          }
+        }].concat(`${cssConfig.language ? cssConfig.language + '-loader?sourceMap' : ''}`)
     }, {
       test: cssTest(cssConfig.language),
       exclude: commonStaticPaths,

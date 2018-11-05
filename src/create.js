@@ -5,6 +5,7 @@ const chalk = require('chalk');
 
 const line = require('./line');
 const log = require('./logger');
+const cssConfig = require('./css-config.json');
 
 module.exports = function (config) {
   config.projectType = config.projectType.toLowerCase();
@@ -59,6 +60,7 @@ module.exports = function (config) {
       }
     });
 
+    let cssLoaderConfig = cssConfig[config.cssLanguage];
 
     for (let key in cssLoaderConfig) {
       if (cssLoaderConfig.hasOwnProperty(key)) {

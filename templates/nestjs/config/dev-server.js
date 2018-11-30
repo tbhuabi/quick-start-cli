@@ -12,6 +12,14 @@ const compiler = webpack(webpackConfig);
 
 const app = express();
 
+const instance = webpackDevMiddleware(compiler, {
+  publicPath: globalConfig.devClientDomain,
+  stats: {
+    colors: true,
+    chunks: false
+  }
+});
+
 app.use('/', function (req, res, next) {
   console.log('接收到请求：' + req.url);
   next();
@@ -21,13 +29,7 @@ app.use(historyApiFallback({
   index: globalConfig.devClientDomain
 }));
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: globalConfig.devClientDomain,
-  stats: {
-    colors: true,
-    chunks: false
-  }
-}));
+app.use(instance);
 app.use(webpackHotMiddleware(compiler));
 
 
@@ -35,4 +37,8 @@ app.listen(globalConfig.devClientPort, globalConfig.ip, error => {
   if (error) {
     console.log(error);
   }
+});
+
+instance.waitUntilValid(() => {
+  console.log(globalConfig.devClientDomain);
 });

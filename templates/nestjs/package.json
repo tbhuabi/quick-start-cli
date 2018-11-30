@@ -1,10 +1,11 @@
 {
   "name": "Nestjs-starter",
   "version": "1.0.0",
-  "description": "A webpack starter for Angular",
+  "description": "A webpack starter for Nestjs and Angular",
   "main": "server/server.js",
   "private": true,
   "scripts": {
+    "start": "npm run dev:client & node -r ./config/ts-node.config.js server/main.ts",
     "dev:client": "cross-env NODE_ENV=development node config/dev-server.js",
     "dev:server": "nodemon --config config/nodemon.json",
     "build:client": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail",

@@ -17,6 +17,7 @@ module.exports = function (config) {
   let templateSource;
   if (config.projectType === 'nestjs') {
     templateSource = path.resolve(__dirname, `../templates/${config.projectType}`);
+    packageJson = require(`../templates/${config.projectType}/package.json`);
   } else if (config.projectType === 'react') {
     demoSource = path.resolve(__dirname, `../templates/${config.projectType}/${config.language}/demo/${config.cssLanguage}`);
     packageJson = require(`../templates/${config.projectType}/${config.language}/template/package.json`);
@@ -28,13 +29,20 @@ module.exports = function (config) {
   }
 
   const templateTarget = config.projectName;
-
+  packageJson.name = config.projectName;
   copy({
     src: templateSource,
     dest: templateTarget
   }, () => {
     log('--项目模板创建完成--');
     if (config.projectType === 'nestjs') {
+      let packageFile = path.join(config.projectName, 'package.json');
+      let packageContent = JSON.stringify(packageJson, null, 2);
+      fs.writeFile(packageFile, packageContent, error => {
+        if (error) {
+          log(chalk.red(error))
+        }
+      });
       log(chalk.green('项目创建完成！'));
     }
   }).on('log', message => {

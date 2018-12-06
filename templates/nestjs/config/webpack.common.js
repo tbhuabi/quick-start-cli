@@ -73,7 +73,7 @@ module.exports = {
     }, {
       test: cssTest(cssConfig.language),
       include: commonStaticPaths,
-      use: isProduction ? [MiniCssExtractPlugin, {
+      use: isProduction ? [MiniCssExtractPlugin.loader, {
           loader: 'css-loader',
           options: {
             minimize: true

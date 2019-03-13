@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import open from 'open';
 
 import { prodPort, prodDomain, ip, devServerPort, devServerDomain, isProduction } from '../global.config';
 import { api, name } from '../proxy.config';
@@ -25,6 +26,7 @@ async function bootstrap() {
   } else {
     await app.listen(devServerPort, ip);
     console.log('服务启动：' + devServerDomain);
+    open(devServerDomain);
   }
 }
 

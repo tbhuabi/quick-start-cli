@@ -1,8 +1,10 @@
 const ngAot = require('@ngtools/webpack');
 const webpackMerge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const commonConfig = require('./webpack.common.js');
 const path = require('path');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
 const globalConfig = require('../global.config');
 
 module.exports = webpackMerge(commonConfig, {
@@ -26,6 +28,23 @@ module.exports = webpackMerge(commonConfig, {
     })
   ],
   optimization: {
+    minimizer: [new UglifyJsPlugin({
+      exclude: /\.min\.js$/,
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+      extractComments: true,
+      uglifyOptions: {
+        compress: {
+          unused: true,
+          warnings: false,
+          drop_debugger: true
+        },
+        output: {
+          comments: false
+        }
+      }
+    }), new OptimizeCSSAssetsPlugin({})],
     splitChunks: {
       cacheGroups: {
         vendor: {

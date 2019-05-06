@@ -7,6 +7,7 @@ const appPath = globalConfig.appPath;
 const publicPaths = [path.resolve(appPath, 'assets'), path.resolve(__dirname, '../node_modules')];
 
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   resolve: {
     extensions: ['.ts', '.js']

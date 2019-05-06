@@ -22,12 +22,12 @@
   },
   "license": "ISC",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "clear": "0.0.1",
-    "commander": "^2.9.0",
+    "chalk": "^2.4.2",
+    "clear": "0.1.0",
+    "commander": "^2.0.0",
     "directory-copy": "^0.1.0",
     "figlet": "^1.2.0",
-    "inquirer": "^1.2.2"
+    "inquirer": "^6.0.0"
   },
   "bin": {
     "qs": "./bin/cli.js"

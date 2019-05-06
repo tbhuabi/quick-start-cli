@@ -73,12 +73,7 @@ module.exports = {
     }, {
       test: cssTest(cssConfig.language),
       include: commonStaticPaths,
-      use: isProduction ? [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: {
-            minimize: true
-          }
-        }, {
+      use: isProduction ? [MiniCssExtractPlugin.loader, 'css-loader', {
           loader: 'postcss-loader',
           options: {
             plugins() {
@@ -86,7 +81,12 @@ module.exports = {
             }
           }
         }].concat(`${cssConfig.language ? cssConfig.language + '-loader' : ''}`) :
-        ['style-loader', 'css-loader?sourceMap', {
+        ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true
+          }
+        }, {
           loader: 'postcss-loader',
           options: {
             plugins() {
@@ -101,7 +101,6 @@ module.exports = {
       use: ['to-string-loader', {
         loader: 'css-loader',
         options: {
-          minimize: isProduction,
           sourceMap: true
         }
       }, {

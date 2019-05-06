@@ -1,19 +1,41 @@
 {
   "root": true,
-  "parser": "babel-eslint",
   "parserOptions": {
+    "parser": "babel-eslint",
     "sourceType": "module"
   },
   "env": {
     "browser": true
   },
-  "extends": "standard",
+  "extends": [
+    "plugin:vue/recommended",
+    "standard"
+  ],
   "plugins": [
-    "html"
+    "vue"
   ],
   "rules": {
     "arrow-parens": 0,
     "generator-star-spacing": 0,
-    "no-debugger": 2
+    "no-debugger": 2,
+    "indent": "off",
+    "eol-last": "off",
+    "space-before-function-paren": [
+      "warn",
+      "never"
+    ],
+    "vue/max-attributes-per-line": [
+      "warn",
+      {
+        "singleline": 3
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "vue/attributes-order": 0,
+    "vue/html-self-closing": 0,
+    "vue/singleline-html-element-content-newline": 0
   }
 }

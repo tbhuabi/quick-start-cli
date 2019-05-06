@@ -2,10 +2,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
+
 const globalConfig = require('../global.config');
 const cssConfig = require('./css-config.json');
 const cssTest = require('./css-test');
-const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const clientPath = globalConfig.clientPath;
@@ -73,12 +74,7 @@ module.exports = {
     }, {
       test: cssTest(cssConfig.language),
       include: commonStaticPaths,
-      use: isProduction ? [MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: {
-            minimize: true
-          }
-        }, {
+      use: isProduction ? [MiniCssExtractPlugin.loader, 'css-loader', {
           loader: 'postcss-loader',
           options: {
             plugins() {
@@ -86,7 +82,12 @@ module.exports = {
             }
           }
         }].concat(`${cssConfig.language ? cssConfig.language + '-loader' : ''}`)
-        : ['style-loader', 'css-loader?sourceMap', {
+        : ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true
+          }
+        }, {
           loader: 'postcss-loader',
           options: {
             plugins() {
@@ -101,7 +102,6 @@ module.exports = {
       use: ['to-string-loader', {
         loader: 'css-loader',
         options: {
-          minimize: isProduction,
           sourceMap: true
         }
       }, {

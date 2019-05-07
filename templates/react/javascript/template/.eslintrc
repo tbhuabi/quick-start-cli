@@ -15,9 +15,12 @@
         "ignoreComments": true
       }
     ],
+    "arrow-parens": "off",
     "react/jsx-tag-spacing": 0,
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
     "eol-last": 0,
+    "global-require": 0,
     "react/prefer-stateless-function": 0,
     "comma-dangle": 0,
     "prefer-destructuring": 0,

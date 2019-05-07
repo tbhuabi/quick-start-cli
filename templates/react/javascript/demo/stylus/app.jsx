@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { Route, BrowserRouter } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root';
+
 import 'normalize.css';
 import './assets/stylus/index.styl';
 
@@ -13,19 +14,19 @@ function App() {
     <div className="page-wrap">
       <div className="page">
         <div className="header">
-          <PageHeader />
+          <PageHeader/>
         </div>
         <div className="page-content">
           <BrowserRouter>
-            <Route path="/" component={Home} />
+            <Route path="/" component={Home}/>
           </BrowserRouter>
         </div>
       </div>
       <div className="footer">
-        <PageFooter />
+        <PageFooter/>
       </div>
     </div>
   );
 }
 
-ReactDom.render(<App />, document.getElementById('app'));
+export default hot(App);

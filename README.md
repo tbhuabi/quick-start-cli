@@ -6,40 +6,45 @@
 
 ## 版本说明
 
+### 3.8.0
++ angular 升级到7.\*.\*
++ Vue 升级到最新，webpack 更新到4.\*.\*
++ React 升级到最新，webpack 更新到4.\*.\*
+
 ### 3.7.3
-添加了 nestjs + angular + sass 的选项
++ 添加了 nestjs + angular + sass 的选项
 
 ### 3.4.0
-angular 升级到 6.*，webpack 升级到 4.*
++ angular 升级到 6.*，webpack 升级到 4.*
 
 ### 3.2.0
-React 增加Typescript选项
++ React 增加Typescript选项
 
 ### 3.1.0
-增加静态资源打包发布的路径对环境变量的支持
++ 增加静态资源打包发布的路径对环境变量的支持
 
 ### 3.0.0
-Vue 升级到最新版  
-angular 删除 doc 配置
++ Vue 升级到最新版  
++ angular 删除 doc 配置
 
 ### 2.3.16
-angular项目版本升级到v5，相关配置都升级到最新
++ angular项目版本升级到v5，相关配置都升级到最新
 
 ### 2.3.0
-angular加入了aot优化
++ angular加入了aot优化
 
 ### 2.2.0
-vue、react 升级到webpack@^2.4.0
++ vue、react 升级到webpack@^2.4.0
 
 ### 2.1.0
-加入了ng4热刷新功能
++ 加入了ng4热刷新功能
 
 ### 2.0.0
-ng版本更新到^4.0.0，angular项目的webpack更新到^2.0.0
++ ng版本更新到^4.0.0，angular项目的webpack更新到^2.0.0
 
 ### 1.\*.\*
 
-主要由webpack1 + ng2/vue2/react + less/sass/stylus来创建项目
++ 主要由webpack1 + ng2/vue2/react + less/sass/stylus来创建项目
 
 
 ## 脚手架特性
@@ -77,16 +82,10 @@ qs -c
 ? 请输入项目名称： my-project
 ? 请选择项目框架： angular
 ? 请选择样式表语言： sass
-? 请输入版本号： 1.0.0
-? 请输入作者的名称： your name
-? 请输入项目简介： demo project
 ================================================================================
     项目名称：my-project
     项目框架：angular
   样式表语言：sass
-      版本号：1.0.0
-        作者：your name
-    项目简介：demo project
 ? 请确认您的项目： Yes
 ================================================================================
 正在创建项目……

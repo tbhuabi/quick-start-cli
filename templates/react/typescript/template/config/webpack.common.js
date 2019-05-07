@@ -15,7 +15,10 @@ module.exports = {
     app: path.resolve(appPath, 'main.tsx')
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   module: {
     rules: [{

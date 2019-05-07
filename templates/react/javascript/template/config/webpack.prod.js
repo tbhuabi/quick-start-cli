@@ -27,5 +27,20 @@ module.exports = webpackMerge(commonConfig, {
         'NODE_ENV': JSON.stringify(ENV)
       }
     })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'all',
+          test: /\/node_modules\/.*\.(js|ts)$/,
+          name: 'vendor',
+          minChunks: 1,
+          maxInitialRequests: 5,
+          minSize: 10,
+          priority: 2
+        }
+      }
+    }
+  }
 })

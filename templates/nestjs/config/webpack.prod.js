@@ -37,7 +37,6 @@ module.exports = webpackMerge(commonConfig, {
       uglifyOptions: {
         compress: {
           unused: true,
-          warnings: false,
           drop_debugger: true
         },
         output: {

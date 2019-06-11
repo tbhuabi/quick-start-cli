@@ -1,5 +1,5 @@
 {
-  "name": "Vue-starter",
+  "name": "vue-starter",
   "version": "1.0.0",
   "description": "A webpack starter for Vue2",
   "main": "server/server.js",

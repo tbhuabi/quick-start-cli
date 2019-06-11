@@ -1,5 +1,5 @@
 {
-  "name": "Angular-starter",
+  "name": "angular-starter",
   "version": "1.0.0",
   "description": "A webpack starter for Angular",
   "main": "server/server.js",

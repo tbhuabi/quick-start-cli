@@ -1,5 +1,5 @@
 {
-  "name": "React-starter",
+  "name": "react-starter",
   "version": "1.0.0",
   "description": "A webpack starter for React",
   "main": "server/server.js",

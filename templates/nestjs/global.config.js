@@ -23,5 +23,6 @@ module.exports = {
   staticPublicPath: 'static/',
   onlinePublishPathPrefix: isProduction ? '/open-platform/' : '',
   clientPath,
-  isProduction
+  isProduction,
+  runtimeENV: process.env.RUNTIME_ENV
 };

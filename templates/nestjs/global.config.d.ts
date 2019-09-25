@@ -10,3 +10,4 @@ export const staticPublicPath: string;
 export const onlinePublishPathPrefix: string;
 export const clientPath: string;
 export const isProduction: boolean;
+export const runtimeENV: string;

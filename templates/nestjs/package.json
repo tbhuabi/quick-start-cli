@@ -5,12 +5,14 @@
   "main": "server/server.js",
   "private": true,
   "scripts": {
-    "start": "npm run dev:client & node -r ./config/ts-node.config.js server/main.ts",
+    "start": "cross-env RUNTIME_ENV=local npm run dev:client & node -r ./config/ts-node.config.js server/main.ts",
     "dev:client": "cross-env NODE_ENV=development node config/dev-server.js",
     "dev:server": "nodemon --config config/nodemon.json",
     "build:client": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --profile --bail",
     "build:server": "tsc -p tsconfig-server.json",
-    "build": "rimraf build &&  npm run build:server && npm run build:client",
+    "build": "rimraf build && npm run build:server && npm run build:client",
+    "build:testing": "cross-env RUNTIME_ENV=testing npm run build",
+    "build:release": "cross-env RUNTIME_ENV=release npm run build",
     "production": "cross-env NODE_ENV=production pm2 start pm2.config.json"
   },
   "keywords": [

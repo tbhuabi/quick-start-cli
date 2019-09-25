@@ -132,7 +132,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         ENV: JSON.stringify(isProduction ? 'production' : 'development'),
-        PATH_PREFIX: JSON.stringify(globalConfig.onlinePublishPathPrefix)
+        PATH_PREFIX: JSON.stringify(globalConfig.onlinePublishPathPrefix),
+        RUNTIME_ENV: JSON.stringify(globalConfig.runtimeENV)
       }
     })
   ]

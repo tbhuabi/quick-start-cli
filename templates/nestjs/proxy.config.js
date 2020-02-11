@@ -1,4 +1,4 @@
-const globalConfig = require('./global.config')
+const globalConfig = require('./global.config');
 
 const apiConfig = {
   local: {
@@ -13,6 +13,6 @@ const apiConfig = {
     api: 'http://www.baidu.com',
     name: '正式上线'
   }
-}
+};
 
-module.exports = apiConfig[globalConfig.runtimeENV]
+module.exports = apiConfig[globalConfig.runtimeENV];

@@ -45,7 +45,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.posix.join(globalConfig.staticPublicPath, `img/[name]${isProduction ? '.[hash]' : ''}.[ext]`)
+          name: path.posix.join(globalConfig.staticPublicPath, `img/[name]${isProduction ? '.[hash]' : ''}.[ext]`),
+          esModule: false
         }
       }]
     }, {
@@ -53,9 +54,7 @@ module.exports = {
       use: [{
         loader: 'html-loader',
         options: {
-          minimize: isProduction,
-          removeAttributeQuotes: !isProduction,
-          caseSensitive: isProduction
+          minimize: isProduction
         }
       }]
     }, {
@@ -64,7 +63,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.posix.join(globalConfig.staticPublicPath, `fonts/[name]${isProduction ? '.[hash]' : ''}.[ext]`)
+          name: path.posix.join(globalConfig.staticPublicPath, `fonts/[name]${isProduction ? '.[hash]' : ''}.[ext]`),
+          esModule: false
         }
       }]
     }, {

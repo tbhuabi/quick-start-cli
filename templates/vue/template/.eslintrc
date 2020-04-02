@@ -20,10 +20,7 @@
     "no-debugger": 2,
     "indent": "off",
     "eol-last": "off",
-    "space-before-function-paren": [
-      "warn",
-      "never"
-    ],
+    "space-before-function-paren": 0,
     "vue/max-attributes-per-line": [
       "warn",
       {

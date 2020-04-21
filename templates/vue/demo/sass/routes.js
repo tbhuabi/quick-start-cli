@@ -1,14 +1,16 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './views/home/home.vue'
 
-Vue.use(Router)
+const routes = [{
+  path: '/',
+  component: Home
+}]
 
-export default new Router({
-  mode: 'history',
-  routes: [{
-    path: '/',
-    name: 'Home',
-    component: Home
-  }]
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes
 })
+
+export {
+  router
+}

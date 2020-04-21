@@ -11,7 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: console
   });
-  app.use('/api', httpProxyMiddleware({
+  app.use('/api', httpProxyMiddleware.createProxyMiddleware({
     target: api,
     pathRewrite: {
       '^/api/': '/'

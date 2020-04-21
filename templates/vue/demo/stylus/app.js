@@ -1,17 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 
 import App from './views/app.vue'
-import './components'
+import { router } from './routes'
 import 'normalize.css'
 import './assets/stylus/index.styl'
-import router from './routes'
 
-const vm = new Vue({
-  el: '#app',
-  router,
-  render (h) {
-    return h(App)
-  }
-})
-
-Vue.use(vm)
+createApp(App).use(router).mount('#app')

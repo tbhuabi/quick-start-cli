@@ -4,16 +4,23 @@
       <div class="banner">
         <img :src="banner" alt="quick start">
       </div>
-      <p>简单 快速 高效</p>
+      <p>简单{{ mark }}快速{{ mark }}高效</p>
     </div>
   </div>
 </template>
 
 <script type="text/babel">
+  import { ref } from 'vue'
+
   export default {
-    data () {
+    setup() {
+      const mark = ref('-')
+      setInterval(() => {
+        mark.value = mark.value === '-' ? ' ' : '-'
+      }, 400)
       return {
-        banner: require('../../assets/images/banner.png')
+        banner: require('../../assets/images/banner.png'),
+        mark
       }
     }
   }

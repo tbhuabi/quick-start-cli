@@ -2,7 +2,7 @@ const open = require('open');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const historyApiFallback = require("connect-history-api-fallback");
+const historyApiFallback = require('connect-history-api-fallback');
 const httpProxyMiddleware = require('http-proxy-middleware');
 
 const express = require('express');
@@ -16,7 +16,7 @@ const compiler = webpack(webpackConfig);
 const app = express();
 
 
-app.use('/api', httpProxyMiddleware({
+app.use('/api', httpProxyMiddleware.createProxyMiddleware({
   target: proxyConfig.api[0],
   pathRewrite: {
     '^/api/': '/'

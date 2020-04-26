@@ -6,6 +6,10 @@
     "export-name": [0],
     "import-name": [0],
     "max-line-length": [true, 120],
+    "no-implicit-dependencies": [false],
+    "no-submodule-imports": false,
+    "no-import-side-effect": false,
+    "function-name": false,
     "member-ordering": [true, {
       "order": [
         "public-static-field",
